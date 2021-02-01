@@ -1,0 +1,9 @@
+# Song of Solomon 7
+
+[[Song-06|← Song of Solomon 06]] | [[Song of Solomon]] | [[Song-08|Song of Solomon 08 →]]
+***
+
+###### 1 (7:2) How beautiful are your sandaled feet, O nobleman's daughter! The curves of your thighs are like jewels, the work of the hands of a master craftsman. ###### v2 Your navel is a round mixing bowl-- may it never lack mixed wine! Your belly is a mound of wheat, encircled by lilies. ###### v3 Your two breasts are like two fawns, twins of a gazelle. ###### v4 Your neck is like a tower made of ivory. Your eyes are the pools in Heshbon by the gate of Bath Rabbim. Your nose is like the tower of Lebanon overlooking Damascus. ###### v5 Your head crowns you like Mount Carmel. The locks of your hair are like royal tapestries-- the king is held captive in its tresses! ###### v6 How beautiful you are! How lovely, O love, with your delights!The Palm Tree and the Palm Tree Climber ###### v7 Your stature is like a palm tree, and your breasts are like clusters of grapes. ###### v8 I want to climb the palm tree, and take hold of its fruit stalks. May your breasts be like the clusters of grapes, and may the fragrance of your breath be like apples! ###### v9 May your mouth be like the best wine, flowing smoothly for my beloved, gliding gently over our lips as we sleep together.Poetic Refrain: Mutual Possession ###### v10 I am my beloved's, and he desires me!The Journey to the Countryside ###### v11 Come, my beloved, let us go to the countryside; let us spend the night in the villages. ###### v12 Let us rise early to go to the vineyards, to see if the vines have budded, to see if their blossoms have opened, if the pomegranates are in bloom-- there I will give you my love. ###### v13 The mandrakes send out their fragrance; over our door is every delicacy, both new and old, which I have stored up for you, my lover.
+
+***
+[[Song-06|← Song of Solomon 06]] | [[Song of Solomon]] | [[Song-08|Song of Solomon 08 →]]

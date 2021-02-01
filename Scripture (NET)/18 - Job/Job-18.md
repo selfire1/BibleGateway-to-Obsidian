@@ -1,0 +1,9 @@
+# Job 18
+
+[[Job-17|← Job 17]] | [[Job]] | [[Job-19|Job 19 →]]
+***
+
+Bildad's Second Speech ###### 1 Then Bildad the Shuhite answered: ###### v2 "How long until you make an end of words? You must consider, and then we can talk. ###### v3 Why should we be regarded as beasts, and considered stupid in your sight? ###### v4 You who tear yourself to pieces in your anger, will the earth be abandoned for your sake? Or will a rock be moved from its place? ###### v5 "Yes, the lamp of the wicked is extinguished; his flame of fire does not shine. ###### v6 The light in his tent grows dark; his lamp above him is extinguished. ###### v7 His vigorous steps are restricted, and his own counsel throws him down. ###### v8 For he has been thrown into a net by his feet and he wanders into a mesh. ###### v9 A trap seizes him by the heel; a snare grips him. ###### v10 A rope is hidden for him on the ground and a trap for him lies on the path. ###### v11 Terrors frighten him on all sides and dog his every step. ###### v12 Calamity is hungry for him, and misfortune is ready at his side. ###### v13 It eats away parts of his skin; the most terrible death devours his limbs. ###### v14 He is dragged from the security of his tent, and marched off to the king of terrors. ###### v15 Fire resides in his tent; over his residence burning sulfur is scattered. ###### v16 Below his roots dry up, and his branches wither above. ###### v17 His memory perishes from the earth, he has no name in the land. ###### v18 He is driven from light into darkness and is banished from the world. ###### v19 He has neither children nor descendants among his people, no survivor in those places he once stayed. ###### v20 People of the west are appalled at his fate; people of the east are seized with horror, saying, ###### v21 'Surely such is the residence of an evil man; and this is the place of one who has not known God.'"
+
+***
+[[Job-17|← Job 17]] | [[Job]] | [[Job-19|Job 19 →]]

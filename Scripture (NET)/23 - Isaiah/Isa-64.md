@@ -1,0 +1,9 @@
+# Isaiah 64
+
+[[Isa-63|← Isaiah 63]] | [[Isaiah]] | [[Isa-65|Isaiah 65 →]]
+***
+
+###### 1 (63:19b) If only you would tear apart the sky and come down! The mountains would tremble before you! ###### v2 (64:1) As when fire ignites dry wood, or fire makes water boil, let your adversaries know who you are, and may the nations shake at your presence! ###### v3 When you performed awesome deeds that took us by surprise, you came down, and the mountains trembled before you. ###### v4 Since ancient times no one has heard or perceived, no eye has seen any God besides you, who intervenes for those who wait for him. ###### v5 You assist those who delight in doing what is right, who observe your commandments. Look, you were angry because we violated them continually. How then can we be saved? ###### v6 We are all like one who is unclean, all our so-called righteous acts are like a menstrual rag in your sight. We all wither like a leaf; our sins carry us away like the wind. ###### v7 No one invokes your name, or makes an effort to take hold of you. For you have rejected us and handed us over to our own sins. ###### v8 Yet, LORD, you are our father. We are the clay, and you are our potter; we are all the product of your labor. ###### v9 LORD, do not be too angry! Do not hold our sins against us continually. Take a good look at your people, at all of us. ###### v10 Your chosen cities have become a wilderness; Zion has become a wilderness, Jerusalem, a desolate ruin. ###### v11 Our holy temple, our pride and joy, the place where our ancestors praised you, has been burned with fire; all our prized possessions have been destroyed. ###### v12 In light of all this, how can you still hold back, LORD? How can you be silent and continue to humiliate us?
+
+***
+[[Isa-63|← Isaiah 63]] | [[Isaiah]] | [[Isa-65|Isaiah 65 →]]

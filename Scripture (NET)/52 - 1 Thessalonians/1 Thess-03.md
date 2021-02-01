@@ -1,0 +1,9 @@
+# 1 Thessalonians 3
+
+[[1 Thess-02|← 1 Thessalonians 02]] | [[1 Thessalonians]] | [[1 Thess-04|1 Thessalonians 04 →]]
+***
+
+###### 1 So when we could bear it no longer, we decided to stay on in Athens alone. ###### v2 We sent Timothy, our brother and fellow worker for God in the gospel of Christ, to strengthen you and encourage you about your faith, ###### v3 so that no one would be shaken by these afflictions. For you yourselves know that we are destined for this. ###### v4 For in fact when we were with you, we were telling you in advance that we would suffer affliction, and so it has happened, as you well know. ###### v5 So when I could bear it no longer, I sent to find out about your faith, for fear that the tempter somehow tempted you and our toil had proven useless. ###### v6 But now Timothy has come to us from you and given us the good news of your faith and love and that you always think of us with affection and long to see us just as we also long to see you! ###### v7 So in all our distress and affliction, we were reassured about you, brothers and sisters, through your faith. ###### v8 For now we are alive again, if you stand firm in the Lord. ###### v9 For how can we thank God enough for you, for all the joy we feel because of you before our God? ###### v10 We pray earnestly night and day to see you in person and make up what may be lacking in your faith. ###### v11 Now may God our Father himself and our Lord Jesus direct our way to you. ###### v12 And may the Lord cause you to increase and abound in love for one another and for all, just as we do for you, ###### v13 so that your hearts are strengthened in holiness to be blameless before our God and Father at the coming of our Lord Jesus with all his saints.
+
+***
+[[1 Thess-02|← 1 Thessalonians 02]] | [[1 Thessalonians]] | [[1 Thess-04|1 Thessalonians 04 →]]
