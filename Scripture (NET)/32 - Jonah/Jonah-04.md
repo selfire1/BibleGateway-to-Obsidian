@@ -1,9 +1,0 @@
-# Jonah 4
-
-[[Jonah-03|← Jonah 03]] | [[Jonah]]
-***
-
-Jonah Responds to God's Kindness ###### 1 This displeased Jonah terribly and he became very angry. ###### v2 He prayed to the LORD and said, "Oh, LORD, this is just what I thought would happen when I was in my own country. This is what I tried to prevent by attempting to escape to Tarshish, because I knew that you are a gracious and compassionate God, slow to anger and abounding in mercy, and one who relents concerning threatened judgment. ###### v3 So now, LORD, kill me instead, because I would rather die than live!" ###### v4 The LORD said, "Are you really so very angry?" ###### v5 Jonah left the city and sat down east of it. He made a shelter for himself there and sat down under it in the shade to see what would happen to the city. ###### v6 The LORD God appointed a little plant and caused it to grow up over Jonah to be a shade over his head to rescue him from his misery. Now Jonah was very delighted about the little plant. ###### v7 So God sent a worm at dawn the next day, and it attacked the little plant so that it dried up. ###### v8 When the sun began to shine, God sent a hot east wind. So the sun beat down on Jonah's head, and he grew faint. So he despaired of life and said, "I would rather die than live!" ###### v9 God said to Jonah, "Are you really so very angry about the little plant?" And he said, "I am as angry as I could possibly be!" ###### v10 The LORD said, "You were upset about this little plant, something for which you did not work, nor did you do anything to make it grow. It grew up overnight and died the next day. ###### v11 Should I not be more concerned about Nineveh, this enormous city? There are more than 120,000 people in it who do not know right from wrong, as well as many animals."
-
-***
-[[Jonah-03|← Jonah 03]] | [[Jonah]]

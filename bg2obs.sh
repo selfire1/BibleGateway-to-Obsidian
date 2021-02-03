@@ -1,28 +1,14 @@
 #!/bin/bash
 #----------------------------------------------------------------------------------
 # This script runs Jonathan clark's bg2md.rb ruby script and formats the output
-# to be useful in Obsidian.
+# to be useful in Obsidian. Find the script here: https://github.com/jgclark/BibleGateway-to-Markdown
 #
-# It needs to be run in the same directoy as the 'bg2md_mod.rb' script and will output
+# It needs to be run in the same directoy as the 'bg2md.rb' script and will output
 # one .md file for each chapter, organising them in folders corresponding to the book.
 # Navigation on the top and bottom is also added.
 #
 #----------------------------------------------------------------------------------
-
-#----------------------------------------------------------------------------------
-# The Output of this text needs to be formatted slightly to fit with use in Obsidian
-# After exporting, open a text editor (like Atom.io),
-# enable Regex and run find and replace:
-  # *Clean up unwanted headers*
-    # Find: ^[\w\s]*(######)
-    # Replace: \n$1
-    # file: *.md
-  # Clean up verses
-    # Find: (######\sv\d)
-    # Replace: \n\n$1\n
-    # file: *.md
-#----------------------------------------------------------------------------------
-
+# SETTINGS
 #----------------------------------------------------------------------------------
 # Setting a different translation:
 # Using the abbreviation, you can call on a different translation.
@@ -30,10 +16,13 @@
 # make sure to honour the copyright restrictions.
 #----------------------------------------------------------------------------------
 
-translation="NET"
+# OPTIONS
+translation="WEB" # Set translation
+boldwords="false" # Set 'true' for bolding words of Jesus
+headers="false" # Set 'true' for including editorial headers
 
 book_counter=0 # Setting the counter to 0
-book_counter_max=66 # Setting the max amount to 66, since there are 66 books we want to import
+book_counter_max=0 # Setting the max amount to 66, since there are 66 books we want to import
 
 # Book list
 declare -a bookarray # Declaring the Books of the Bible as a list
@@ -104,8 +93,17 @@ filename=${export_prefix}$export_number # Setting the filename
     navigation="[[${prev_file}|← ${book} ${prev_chapter}]] | [[${book}]] | [[${next_file}|${book} ${next_chapter} →]]"
   fi
 
+  if ${boldwords} -eq "true" && ${headers} -eq "false"; then
+    text=$(ruby bg2md.rb -e -c -b -f -l -r -v "${translation}" ${book} ${chapter}) # This calls the 'bg2md_mod script'
+  elif ${boldwords} -eq "true" && ${headers} -eq "true"; then
+    text=$(ruby bg2md.rb -c -b -f -l -r -v "${translation}" ${book} ${chapter}) # This calls the 'bg2md_mod script'
+  elif ${boldwords} -eq "false" && ${headers} -eq "true"; then
+    text=$(ruby bg2md.rb -e -c -f -l -r -v "${translation}" ${book} ${chapter}) # This calls the 'bg2md_mod script'
+  else
+    text=$(ruby bg2md.rb -e -c -f -l -r -v "${translation}" ${book} ${chapter}) # This calls the 'bg2md_mod script'
+  fi
 
-  text=$(ruby bg2md_mod.rb ${book} ${chapter} -e -c -f -r -v "${translation}") # This calls the 'bg2md_mod script'
+
   text=$(echo $text | sed 's/^(.*?)v1/v1/') # Deleting unwanted headers
 
   # Formatting the title for markdown

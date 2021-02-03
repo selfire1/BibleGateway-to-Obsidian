@@ -1,9 +1,0 @@
-# Isaiah 31
-
-[[Isa-30|← Isaiah 30]] | [[Isaiah]] | [[Isa-32|Isaiah 32 →]]
-***
-
-Egypt Will Disappoint ###### 1 Those who go down to Egypt for help are as good as dead; those who rely on war horses, and trust in Egypt's many chariots and in their many, many horsemen. But they do not rely on the Holy One of Israel and do not seek help from the LORD. ###### v2 Yet he too is wise and he will bring disaster; he does not retract his decree. He will attack the wicked nation, and the nation that helps those who commit sin. ###### v3 The Egyptians are mere humans, not God; their horses are made of flesh, not spirit. The LORD will strike with his hand; the one who helps will stumble and the one being helped will fall. Together they will perish.The Lord Will Defend Zion ###### v4 Indeed, this is what the LORD has said to me: "The LORD will be like a growling lion, like a young lion growling over its prey. Though a whole group of shepherds gathers against it, it is not afraid of their shouts or intimidated by their yelling. In this same way the LORD of Heaven's Armies will descend to do battle on Mount Zion and on its hill. ###### v5 Just as birds hover over a nest, so the LORD of Heaven's Armies will protect Jerusalem. He will protect and deliver it; as he passes over he will rescue it." ###### v6 You Israelites! Return to the one you have so blatantly rebelled against! ###### v7 For at that time every one will get rid of the silver and gold idols your hands sinfully made. ###### v8 "Assyria will fall by a sword, but not one human-made; a sword not made by humankind will destroy them. They will run away from this sword and their young men will be forced to do hard labor. ###### v9 They will surrender their stronghold because of fear; their officers will be afraid of the LORD's battle flag." This is what the LORD says-- the one whose fire is in Zion, whose firepot is in Jerusalem.
-
-***
-[[Isa-30|← Isaiah 30]] | [[Isaiah]] | [[Isa-32|Isaiah 32 →]]

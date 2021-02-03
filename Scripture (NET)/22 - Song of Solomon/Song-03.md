@@ -1,9 +1,0 @@
-# Song of Solomon 3
-
-[[Song-02|← Song of Solomon 02]] | [[Song of Solomon]] | [[Song-04|Song of Solomon 04 →]]
-***
-
-The Lost Lover is Found ###### 1 All night long on my bed I longed for my lover. I longed for him but he never appeared. ###### v2 "I will arise and look all around throughout the town, and throughout the streets and squares; I will search for my beloved." I searched for him but I did not find him. ###### v3 The night watchmen found me--the ones who guard the city walls. "Have you seen my beloved?" ###### v4 Scarcely had I passed them by when I found my beloved! I held onto him tightly and would not let him go until I brought him to my mother's house, to the bedroom chamber of the one who conceived me.The Adjuration Refrain ###### v5 I admonish you, O maidens of Jerusalem, by the gazelles and by the young does of the open fields: "Do not awaken or arouse love until it pleases!"The Royal Wedding Procession ###### v6 Who is this coming up from the wilderness like a column of smoke, like a fragrant billow of myrrh and frankincense, every kind of fragrant powder of the traveling merchants? ###### v7 Look! It is Solomon's portable couch! It is surrounded by sixty warriors, some of Israel's mightiest warriors. ###### v8 All of them are skilled with a sword, well trained in the art of warfare. Each has his sword at his side, to guard against the terrors of the night. ###### v9 King Solomon made a sedan chair for himself of wood imported from Lebanon. ###### v10 Its posts were made of silver; its back was made of gold. Its seat was upholstered with purple wool; its interior was inlaid with leather by the maidens of Jerusalem. ###### v11 Come out, O maidens of Zion, and gaze upon King Solomon! He is wearing the crown with which his mother crowned him on his wedding day, on the most joyous day of his life!
-
-***
-[[Song-02|← Song of Solomon 02]] | [[Song of Solomon]] | [[Song-04|Song of Solomon 04 →]]

@@ -1,9 +1,0 @@
-# Proverbs 9
-
-[[Prov-08|← Proverbs 08]] | [[Proverbs]] | [[Prov-10|Proverbs 10 →]]
-***
-
-The Consequences of Accepting Wisdom or Folly ###### 1 Wisdom has built her house; she has carved out its seven pillars. ###### v2 She has prepared her meat, she has mixed her wine; she also has arranged her table. ###### v3 She has sent out her female servants; she calls out on the highest places of the city. ###### v4 "Whoever is naive, let him turn in here." To those who lack understanding, she has said, ###### v5 "Come, eat some of my food, and drink some of the wine I have mixed. ###### v6 Abandon your foolish ways so that you may live, and proceed in the way of understanding." ###### v7 Whoever corrects a mocker is asking for insult; whoever reproves a wicked person receives abuse. ###### v8 Do not reprove a mocker or he will hate you; reprove a wise person and he will love you. ###### v9 Give instruction to a wise person, and he will become wiser still; teach a righteous person and he will add to his learning. ###### v10 The beginning of wisdom is to fear the LORD, and acknowledging the Holy One is understanding. ###### v11 For because of me your days will be many, and years will be added to your life. ###### v12 If you are wise, you are wise to your own advantage, but if you have mocked, you alone must bear it. ###### v13 The woman called Folly is brash, she is naive and does not know anything. ###### v14 And she has sat down at the door of her house, on a seat at the highest point of the city, ###### v15 calling out to those who are passing by her in the way, who go straight on their way. ###### v16 "Whoever is naive, let him turn in here," To those who lack understanding she has said, ###### v17 "Stolen waters are sweet, and food obtained in secret is pleasant!" ###### v18 But they do not realize that the dead are there, that her guests are in the depths of the grave.
-
-***
-[[Prov-08|← Proverbs 08]] | [[Proverbs]] | [[Prov-10|Proverbs 10 →]]
