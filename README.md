@@ -1,5 +1,5 @@
 # BibleGateway-to-Obsidian
-This script adapts [jgclark's wonderful BibleGateway-to-Markdown](https://github.com/jgclark/BibleGateway-to-Markdown) script to export well for use in [Obsidian](https://obsidian.md/).
+This script adapts [jgclark's wonderful BibleGateway-to-Markdown](https://github.com/jgclark/BibleGateway-to-Markdown) script to export for use in [Obsidian](https://obsidian.md/). It accompanies a [Bible Study in Obsidian Kit](https://forum.obsidian.md/t/bible-study-in-obsidian-kit-including-the-bible-in-markdown/12503?u=selfire) that gets you hands-on with using Scripture in your personal notes.
 
 What the script does is fetch the text from [Bible Gateway](https://www.biblegateway.com/) and save it as formatted markdown file. Each chapter is saved as one file and navigation between files as well as a book-file is automatically created. All of the chapter files of a book are saved in it's numbered folder.
 
@@ -7,7 +7,7 @@ This script is intended to be as simple as possible to use, even if you have no 
 
 ## Important Disclaimers
 * This is not affiliated to, or approved by, BibleGateway.com. In my understanding it fits into the [conditions of usage](https://support.biblegateway.com/hc/en-us/articles/360001398808-How-do-I-get-permission-to-use-or-reprint-Bible-content-from-Bible-Gateway-?) but I make no guarantee regarding the usage of the script, it is at your own disgression.
-* By default, the version is set to the [NET Bible](https://netbible.com/). You can change the version, as long as you honour the copyright standards of different translations of the Bible (See: [BibleGateways overview](https://www.biblegateway.com/versions/)).
+* By default, the version is set to the [WEB Bible](https://worldenglish.bible/). You can change the version, as long as you honour the copyright standards of different translations of the Bible (See: [BibleGateways overview](https://www.biblegateway.com/versions/)).
 * I have little experience in scripting–through this project I taught myself bash and regex basics. If you run into issues or have a way to simplify this script, please raise an issue or reach out on Discord (`selfire#3095`).
 
 ## Installation
@@ -46,13 +46,14 @@ We will need to format the output to work well in Obsidian.
 Next up we are going to run two [Regex](https://en.wikipedia.org/wiki/Regular_expression)-searches to find and replace in our whole project.
 1. Enable Regex. Click the `.*` Icon.
 2. Run the first search. This clears unnecessary headers:
-* Find: `^.*(######)\s1`
-* Replace: `$1 v1`
+* Find: `#.*(#####\D[1]\D)`
+* Replace: `#$1`
 * file: `*.md`
 3. Run the second search. This formats verses into h6:
-* Find: `(######\sv[[0-9]\s|######\sv[0-9][0-9]\s|######\sv[0-9][0-9][0-9]\s)`
-* Replace: `\n\n$1\n`
+* Find: `######\s([0-9]\s|[0-9][0-9]\s|[0-9][0-9][0-9]\s)`
+* Replace: `\n\n###### v$1\n`
 * file: `*.md`
+(Some crossreferences are sometimes still included, run `\<crossref intro.*crossref\>` to delete.)
 
 **There you go!** Now, just move the "Scripture" folder into your Obsidian vault. You can use the provided `The Bible.md` file as an overview file.
 
