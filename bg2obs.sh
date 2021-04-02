@@ -110,7 +110,7 @@ filename=${export_prefix}$export_number # Setting the filename
   title="# ${book} ${chapter}"
 
   # Navigation format
-  export="${title}\n\n$navigation\n***\n\n$text\n\n***\n$navigation"
+  export="---\nAliases: [${book} ${chapter}]\n---\n${title}\n\n$navigation\n***\n\n$text\n\n***\n$navigation"
 
 
   # Export
