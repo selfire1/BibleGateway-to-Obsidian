@@ -38,24 +38,8 @@ Once you are in the directory, run `bash bg2obs.sh`. This will run the bash scri
 Within the `bg2obs.sh` file you have the options to include headers and set the words of Jesus to bold. By default, both options are set to `false`. You may also set an option to add an alias to the chapter in the YAML front matter at the top of each chapter's Markdown file. The alias creates a more user-friendly version of the chapter link (e.g, "Genesis 1") in your notes. The `aliases` option is set to `false` by default.
 
 ### 3. Format the text in a text editor
-We will need to format the output to work well in Obsidian.
-1. Open [Atom](https://atom.io/) (or the like).
-2. Open the `Scripture` folder with `File > Add Project Folder…` (or `Shift + Command + O`
-3. Open project-wide search with `Shift + Command + F`
 
-Next up we are going to run two [Regex](https://en.wikipedia.org/wiki/Regular_expression)-searches to find and replace in our whole project.
-1. Enable Regex. Click the `.*` Icon.
-2. Run the first search. This clears unnecessary headers:
-* Find: `#.*(#####\D[1]\D)`
-* Replace: `#$1`
-* file: `*.md`
-3. Run the second search. This formats verses into h6:
-* Find: `######\s([0-9]\s|[0-9][0-9]\s|[0-9][0-9][0-9]\s)`
-* Replace: `\n\n###### v$1\n`
-* file: `*.md`
-(Some crossreferences are sometimes still included, run `\<crossref intro.*crossref\>` to delete.)
-
-Note: In [BBEdit](https://www.barebones.com/products/bbedit/), the replacement strings should use `\1` instead of `$1`.
+Some crossreferences are sometimes still included, run `\<crossref intro.*crossref\>` to delete.
 
 **There you go!** Now, just move the "Scripture" folder into your Obsidian vault. You can use the provided `The Bible.md` file as an overview file.
 

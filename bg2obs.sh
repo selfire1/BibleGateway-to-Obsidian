@@ -148,6 +148,7 @@ done # End of the book exporting loop
 
   done
 
+  
   #----------------------------------------------------------------------------------
   # The Output of this text needs to be formatted slightly to fit with use in Obsidian
   # Enable Regex and run find and replace:
@@ -160,3 +161,19 @@ done # End of the book exporting loop
       # Replace: \n\n$1\n
       # file: *.md
   #----------------------------------------------------------------------------------
+
+# Not sure if the comments above are still needed, so leaving them for now.
+
+# Tidy up the Markdown files by removing unneeded headers and separating the verses
+# with some blank space and an H6-level verse number.
+#
+# Using a perl one-liner here in order to help ensure that this works across platforms
+# since the sed utility works differently on macOS and Linux variants. The perl should
+# work consistently.
+
+echo "Cleaning up the Markdown files..."
+# Clear unnecessary headers
+find . -name "*.md" -print0 | xargs -0 perl -pi -e 's/#.*(#####\D[1]\D)/#$1/g'
+
+# Format verses into H6 headers
+find . -name "*.md" -print0 | xargs -0 perl -pi -e 's/######\s([0-9]\s|[0-9][0-9]\s|[0-9][0-9][0-9]\s)/\n\n###### v$1\n/g'
