@@ -38,7 +38,7 @@ declare -a abbarray # Delaring the abbreviations for each book. You can adapt if
 abbarray=(Gen Exod Lev Num Deut Josh Judg Ruth "1 Sam" "2 Sam" "1 Kings" "2 Kings" "1 Chron" "2 Chron" Ezr Neh Esth Job Ps Prov Eccles Song Isa Jer Lam Ezek Dan Hos Joel Am Obad Jonah Micah Nah Hab Zeph Hag Zech Mal Matt Mark Luke John Acts Rom "1 Cor" "2 Cor" Gal Ephes Phil Col "1 Thess" "2 Thess" "1 Tim" "2 Tim" Titus Philem Heb James "1 Pet" "2 Pet" "1 John" "2 John" "3 John" Jude Rev)
 
 
- # Cycling through the book counter, setting which book and it's maxchapter
+ # Cycling through the book counter, setting which book and its maxchapter
   for ((book_counter=0; book_counter <= book_counter_max; book_counter++))
   do
 
@@ -65,12 +65,12 @@ abbarray=(Gen Exod Lev Num Deut Josh Judg Ruth "1 Sam" "2 Sam" "1 Kings" "2 King
 filename=${export_prefix}$export_number # Setting the filename
 
 # Navigation in the note
-  if (( ${prev_chapter} < 10 )); then # Turning singe into double digit numbers
+  if (( ${prev_chapter} < 10 )); then # Turning single into double digit numbers
     #statements
     prev_chapter="0${prev_chapter}"
   fi
 
-  if (( ${next_chapter} < 10 )); then # Turning singe into double digit numbers
+  if (( ${next_chapter} < 10 )); then # Turning single into double digit numbers
     #statements
     next_chapter="0${next_chapter}"
   fi
@@ -94,13 +94,13 @@ filename=${export_prefix}$export_number # Setting the filename
   fi
 
   if ${boldwords} -eq "true" && ${headers} -eq "false"; then
-    text=$(ruby bg2md.rb -e -c -b -f -l -r -v "${translation}" ${book} ${chapter}) # This calls the 'bg2md_mod script'
+    text=$(ruby bg2md.rb -e -c -b -f -l -r -v "${translation}" ${book} ${chapter}) # This calls the 'bg2md_mod' script
   elif ${boldwords} -eq "true" && ${headers} -eq "true"; then
-    text=$(ruby bg2md.rb -c -b -f -l -r -v "${translation}" ${book} ${chapter}) # This calls the 'bg2md_mod script'
+    text=$(ruby bg2md.rb -c -b -f -l -r -v "${translation}" ${book} ${chapter}) # This calls the 'bg2md_mod' script
   elif ${boldwords} -eq "false" && ${headers} -eq "true"; then
-    text=$(ruby bg2md.rb -e -c -f -l -r -v "${translation}" ${book} ${chapter}) # This calls the 'bg2md_mod script'
+    text=$(ruby bg2md.rb -e -c -f -l -r -v "${translation}" ${book} ${chapter}) # This calls the 'bg2md_mod' script
   else
-    text=$(ruby bg2md.rb -e -c -f -l -r -v "${translation}" ${book} ${chapter}) # This calls the 'bg2md_mod script'
+    text=$(ruby bg2md.rb -e -c -f -l -r -v "${translation}" ${book} ${chapter}) # This calls the 'bg2md_mod' script
   fi
 
 
@@ -129,7 +129,7 @@ filename=${export_prefix}$export_number # Setting the filename
 
   folder_name="${actual_num} - ${book}" # Setting the folder name
 
-  # Creating a folder for the book of the Bible it not existing, otherwise moving new file into existing folder
+  # Creating a folder for the book of the Bible if it doesn't exist, otherwise moving new file into existing folder
   mkdir -p "./Scripture (${translation})/${folder_name}"; mv "${filename}".md './Scripture ('"${translation}"')/'"${folder_name}"
 
 
