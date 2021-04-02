@@ -20,6 +20,7 @@
 translation="WEB" # Set translation
 boldwords="false" # Set 'true' for bolding words of Jesus
 headers="false" # Set 'true' for including editorial headers
+aliases="false" # Set 'true' to create an alias in the YAML front matter to a chapter title (e.g., 'Genesis 1')
 
 book_counter=0 # Setting the counter to 0
 book_counter_max=66 # Setting the max amount to 66, since there are 66 books we want to import
@@ -110,8 +111,12 @@ filename=${export_prefix}$export_number # Setting the filename
   title="# ${book} ${chapter}"
 
   # Navigation format
-  export="---\nAliases: [${book} ${chapter}]\n---\n${title}\n\n$navigation\n***\n\n$text\n\n***\n$navigation"
-
+  export="${title}\n\n$navigation\n***\n\n$text\n\n***\n$navigation"
+  if ${aliases} -eq "true"; then
+    alias="---\nAliases: [${book} ${chapter}]\n---\n" # Add other aliases or 'Tags:' here if desired. Make sure to follow proper YAML format.
+    export="${alias}${export}"
+  fi
+  
 
   # Export
   echo -e $export >> "$filename.md"
