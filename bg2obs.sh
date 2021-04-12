@@ -20,6 +20,7 @@
 translation="WEB" # Set translation
 boldwords="false" # Set 'true' for bolding words of Jesus
 headers="false" # Set 'true' for including editorial headers
+aliases="false" # Set 'true' to create an alias in the YAML front matter to a chapter title (e.g., 'Genesis 1')
 
 book_counter=0 # Setting the counter to 0
 book_counter_max=66 # Setting the max amount to 66, since there are 66 books we want to import
@@ -28,7 +29,7 @@ book_counter_max=66 # Setting the max amount to 66, since there are 66 books we 
 declare -a bookarray # Declaring the Books of the Bible as a list
 bookarray=(Genesis Exodus Leviticus Numbers Deuteronomy Joshua Judges Ruth "1 Samuel" "2 Samuel" "1 Kings" "2 Kings" "1 Chronicles" "2 Chronicles" Ezra Nehemiah Esther Job Psalm Proverbs Ecclesiastes "Song of Solomon" Isaiah Jeremiah Lamentations Ezekiel Daniel Hosea Joel Amos Obadiah Jonah Micah Nahum Habakkuk Zephaniah Haggai Zechariah Malachi Matthew Mark Luke John Acts
 Romans "1 Corinthians" "2 Corinthians" Galatians Ephesians Philippians Colossians "1 Thessalonians" "2 Thessalonians" "1 Timothy" "2 Timothy" Titus Philemon Hebrews James "1 Peter" "2 Peter" "1 John" "2 John" "3 John" Jude Revelation)
-x
+
 # Book chapter list
 declare -a lengtharray # Declaring amount of chapters in each book
 lengtharray=(50 40 27 36 34 24 21 4 31 24 22 25 29 36 10 13 10 42 150 31 12 8 66 52 5 48 12 14 3 9 1 4 7 3 3 3 2 14 4 28 16 24 21 28 16 16 13 6 6 4 4 5 3 6 4 3 1 13 5 5 3 5 1 1 1 22)
@@ -38,7 +39,7 @@ declare -a abbarray # Delaring the abbreviations for each book. You can adapt if
 abbarray=(Gen Exod Lev Num Deut Josh Judg Ruth "1 Sam" "2 Sam" "1 Kings" "2 Kings" "1 Chron" "2 Chron" Ezr Neh Esth Job Ps Prov Eccles Song Isa Jer Lam Ezek Dan Hos Joel Am Obad Jonah Micah Nah Hab Zeph Hag Zech Mal Matt Mark Luke John Acts Rom "1 Cor" "2 Cor" Gal Ephes Phil Col "1 Thess" "2 Thess" "1 Tim" "2 Tim" Titus Philem Heb James "1 Pet" "2 Pet" "1 John" "2 John" "3 John" Jude Rev)
 
 
- # Cycling through the book counter, setting which book and it's maxchapter
+ # Cycling through the book counter, setting which book and its maxchapter
   for ((book_counter=0; book_counter <= book_counter_max; book_counter++))
   do
 
@@ -65,12 +66,12 @@ abbarray=(Gen Exod Lev Num Deut Josh Judg Ruth "1 Sam" "2 Sam" "1 Kings" "2 King
 filename=${export_prefix}$export_number # Setting the filename
 
 # Navigation in the note
-  if (( ${prev_chapter} < 10 )); then # Turning singe into double digit numbers
+  if (( ${prev_chapter} < 10 )); then # Turning single into double digit numbers
     #statements
     prev_chapter="0${prev_chapter}"
   fi
 
-  if (( ${next_chapter} < 10 )); then # Turning singe into double digit numbers
+  if (( ${next_chapter} < 10 )); then # Turning single into double digit numbers
     #statements
     next_chapter="0${next_chapter}"
   fi
@@ -94,13 +95,13 @@ filename=${export_prefix}$export_number # Setting the filename
   fi
 
   if ${boldwords} -eq "true" && ${headers} -eq "false"; then
-    text=$(ruby bg2md.rb -e -c -b -f -l -r -v "${translation}" ${book} ${chapter}) # This calls the 'bg2md_mod script'
+    text=$(ruby bg2md.rb -e -c -b -f -l -r -v "${translation}" ${book} ${chapter}) # This calls the 'bg2md_mod' script
   elif ${boldwords} -eq "true" && ${headers} -eq "true"; then
-    text=$(ruby bg2md.rb -c -b -f -l -r -v "${translation}" ${book} ${chapter}) # This calls the 'bg2md_mod script'
+    text=$(ruby bg2md.rb -c -b -f -l -r -v "${translation}" ${book} ${chapter}) # This calls the 'bg2md_mod' script
   elif ${boldwords} -eq "false" && ${headers} -eq "true"; then
-    text=$(ruby bg2md.rb -e -c -f -l -r -v "${translation}" ${book} ${chapter}) # This calls the 'bg2md_mod script'
+    text=$(ruby bg2md.rb -e -c -f -l -r -v "${translation}" ${book} ${chapter}) # This calls the 'bg2md_mod' script
   else
-    text=$(ruby bg2md.rb -e -c -f -l -r -v "${translation}" ${book} ${chapter}) # This calls the 'bg2md_mod script'
+    text=$(ruby bg2md.rb -e -c -f -l -r -v "${translation}" ${book} ${chapter}) # This calls the 'bg2md_mod' script
   fi
 
 
@@ -111,7 +112,11 @@ filename=${export_prefix}$export_number # Setting the filename
 
   # Navigation format
   export="${title}\n\n$navigation\n***\n\n$text\n\n***\n$navigation"
-
+  if ${aliases} -eq "true"; then
+    alias="---\nAliases: [${book} ${chapter}]\n---\n" # Add other aliases or 'Tags:' here if desired. Make sure to follow proper YAML format.
+    export="${alias}${export}"
+  fi
+  
 
   # Export
   echo -e $export >> "$filename.md"
@@ -129,7 +134,7 @@ filename=${export_prefix}$export_number # Setting the filename
 
   folder_name="${actual_num} - ${book}" # Setting the folder name
 
-  # Creating a folder for the book of the Bible it not existing, otherwise moving new file into existing folder
+  # Creating a folder for the book of the Bible if it doesn't exist, otherwise moving new file into existing folder
   mkdir -p "./Scripture (${translation})/${folder_name}"; mv "${filename}".md './Scripture ('"${translation}"')/'"${folder_name}"
 
 
@@ -143,6 +148,7 @@ done # End of the book exporting loop
 
   done
 
+  
   #----------------------------------------------------------------------------------
   # The Output of this text needs to be formatted slightly to fit with use in Obsidian
   # Enable Regex and run find and replace:
@@ -155,3 +161,19 @@ done # End of the book exporting loop
       # Replace: \n\n$1\n
       # file: *.md
   #----------------------------------------------------------------------------------
+
+# Not sure if the comments above are still needed, so leaving them for now.
+
+# Tidy up the Markdown files by removing unneeded headers and separating the verses
+# with some blank space and an H6-level verse number.
+#
+# Using a perl one-liner here in order to help ensure that this works across platforms
+# since the sed utility works differently on macOS and Linux variants. The perl should
+# work consistently.
+
+echo "Cleaning up the Markdown files..."
+# Clear unnecessary headers
+find . -name "*.md" -print0 | xargs -0 perl -pi -e 's/#.*(#####\D[1]\D)/#$1/g'
+
+# Format verses into H6 headers
+find . -name "*.md" -print0 | xargs -0 perl -pi -e 's/######\s([0-9]\s|[0-9][0-9]\s|[0-9][0-9][0-9]\s)/\n\n###### v$1\n/g'
