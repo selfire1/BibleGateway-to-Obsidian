@@ -13,7 +13,8 @@ This script is intended to be as simple as possible to use, even if you have no 
 ## Installation
 Here are the tools we are going to use:
 * Our command line (Terminal)
-* A text editor (like [Atom](https://atom.io/)).
+* ~A text editor (like [Atom](https://atom.io/)).~
+* A text editor is no longer necessary but if you're on windows you might need to install [perl](https://www.perl.org/get.html).
 
 ## Setting ruby up
 ### Updating
