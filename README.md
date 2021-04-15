@@ -36,7 +36,24 @@ Once you are in the directory, run `bash bg2obs.sh`. This will run the bash scri
 
 `NOTE`: In this directory, a folder called `Scripture` with subfolders like `01 - Genesis`, `02 - Exodus` and so on will be created.
 
-Within the `bg2obs.sh` file you have the options to include headers and set the words of Jesus to bold. By default, both options are set to `false`. You may also set an option to add an alias to the chapter in the YAML front matter at the top of each chapter's Markdown file. The alias creates a more user-friendly version of the chapter link (e.g, "Genesis 1") in your notes. The `aliases` option is set to `false` by default.
+Several options are available via command-line switches. Type `bash bg2obs.sh -h` at any time to display them.
+
+#### Script option summary
+| Option | Description |
+| ------ | ----------- |
+| `-v [VERSION]` | Specify the version of the Bible to download (default is WEB) |
+| `-b` | Set words of Jesus in bold (default is Off)|
+| `-e` | Include editorial headers (default is Off)|
+| `-a` | Create an alias in the YAML front matter with a more user-friendly chapter title  (e.g., "Genesis 1") (default is Off)|
+| `-i` | Show progress information while the script is running (i.e. "verbose" mode) (default is Off)|
+| `-h` | Display help |
+
+#### Example usage
+| Command | Description |
+| ------- | ----------- | 
+|`bash bg2obs.sh -i NIV` | Download a copy of the NIV Bible with no other options.|
+|`bash bg2obs.sh -b` | Download a copy of the WEB Bible (default) with Jesus' words in bold. |
+|`bash bg2obs.sh -v NET -beai` | Download a copy of the NET Bible with all options enabled.|
 
 ### 3. Format the text in a text editor
 
