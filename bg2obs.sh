@@ -23,7 +23,7 @@ headers="false" # Set 'true' for including editorial headers
 aliases="false" # Set 'true' to create an alias in the YAML front matter to a chapter title (e.g., 'Genesis 1')
 
 book_counter=0 # Setting the counter to 0
-book_counter_max=66 # Setting the max amount to 66, since there are 66 books we want to import
+book_counter_max=1 # Setting the max amount to 66, since there are 66 books we want to import
 
 # Book list
 declare -a bookarray # Declaring the Books of the Bible as a list
@@ -95,13 +95,13 @@ filename=${export_prefix}$export_number # Setting the filename
   fi
 
   if ${boldwords} -eq "true" && ${headers} -eq "false"; then
-    text=$(ruby bg2md.rb -e -c -b -f -l -r -v "${translation}" ${book} ${chapter}) # This calls the 'bg2md_mod' script
+    text=$(cd "BibleGateway-to-Markdown" && ruby bg2md.rb -e -c -b -f -l -r -v "${translation}" ${book} ${chapter}) # This calls the 'bg2md_mod' script
   elif ${boldwords} -eq "true" && ${headers} -eq "true"; then
-    text=$(ruby bg2md.rb -c -b -f -l -r -v "${translation}" ${book} ${chapter}) # This calls the 'bg2md_mod' script
+    text=$(cd "BibleGateway-to-Markdown" && ruby bg2md.rb -c -b -f -l -r -v "${translation}" ${book} ${chapter}) # This calls the 'bg2md_mod' script
   elif ${boldwords} -eq "false" && ${headers} -eq "true"; then
-    text=$(ruby bg2md.rb -e -c -f -l -r -v "${translation}" ${book} ${chapter}) # This calls the 'bg2md_mod' script
+    text=$(cd "BibleGateway-to-Markdown" && ruby bg2md.rb -e -c -f -l -r -v "${translation}" ${book} ${chapter}) # This calls the 'bg2md_mod' script
   else
-    text=$(ruby bg2md.rb -e -c -f -l -r -v "${translation}" ${book} ${chapter}) # This calls the 'bg2md_mod' script
+    text=$(cd "BibleGateway-to-Markdown" && ruby bg2md.rb -e -c -f -l -r -v "${translation}" ${book} ${chapter}) # This calls the 'bg2md_mod' script
   fi
 
 
