@@ -17,7 +17,7 @@
 #----------------------------------------------------------------------------------
 
 # OPTIONS
-translation="WEB" # Set translation
+translation="NIV" # Set translation
 boldwords="false" # Set 'true' for bolding words of Jesus
 headers="false" # Set 'true' for including editorial headers
 aliases="false" # Set 'true' to create an alias in the YAML front matter to a chapter title (e.g., 'Genesis 1')
