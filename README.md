@@ -14,7 +14,7 @@ This script is intended to be as simple as possible to use, even if you have no 
 Here are the tools we are going to use:
 * Our command line (Terminal)
 * ~A text editor (like [Atom](https://atom.io/)).~
-* A text editor is no longer necessary but if you're on windows you might need to install [perl](https://www.perl.org/get.html).
+* A text editor is no longer necessary but if you're on Windows you might need to [install perl](https://www.perl.org/get.html).
 
 ## Setting ruby up
 ### Updating
@@ -24,19 +24,37 @@ In order to run the scripts, we will need to install ruby. Ruby comes pre-instal
 Follow the instructions to download and set up [jgclark's BibleGateway-to-Markdown](https://github.com/jgclark/BibleGateway-to-Markdown).
 
 ## Usage
-### 1. Navigate to the directory in which both scripts are located.
-Open terminal. Use the following command to navigate to the folder in which both scripts are located:
+### 1. Install scripts
+Put both scripts (`bg2md.rb` and `bg2obs.sh`) in the same directory, open your terminal application, and navigate to that directory with commands like the following:
+
 * `pwd` Show your current directory
 * `ls` List all contents in the current directory
-* `cd` Enter 'down' in a subdirectory (E.g. `cd Desktop`)
+* `cd` Enter a subdirectory (e.g., `cd Desktop`)
 * `cd ..` Brings you 'up' one directory
 
 ### 2. Run the script
-Once you are in the directory, run `bash bg2obs.sh`. This will run the bash script.
+Once you have navigated to the directory containing both scripts, run `bash bg2obs.sh`. This will run the bash script.
 
 `NOTE`: In this directory, a folder called `Scripture` with subfolders like `01 - Genesis`, `02 - Exodus` and so on will be created.
 
-Within the `bg2obs.sh` file you have the options to include headers and set the words of Jesus to bold. By default, both options are set to `false`. You may also set an option to add an alias to the chapter in the YAML front matter at the top of each chapter's Markdown file. The alias creates a more user-friendly version of the chapter link (e.g, "Genesis 1") in your notes. The `aliases` option is set to `false` by default.
+Several options are available via command-line switches. Type `bash bg2obs.sh -h` at any time to display them.
+
+#### Script option summary
+| Option | Description |
+| ------ | ----------- |
+| `-v [VERSION]` | Specify the version of the Bible to download (default is WEB) |
+| `-b` | Set words of Jesus in bold (default is Off)|
+| `-e` | Include editorial headers (default is Off)|
+| `-a` | Create an alias in the YAML front matter with a more user-friendly chapter title  (e.g., "Genesis 1") (default is Off)|
+| `-i` | Show progress information while the script is running (i.e. "verbose" mode) (default is Off)|
+| `-h` | Display help |
+
+#### Example usage
+| Command | Description |
+| ------- | ----------- | 
+|`bash bg2obs.sh -i NIV` | Download a copy of the NIV Bible with no other options.|
+|`bash bg2obs.sh -b` | Download a copy of the WEB Bible (default) with Jesus' words in bold. |
+|`bash bg2obs.sh -v NET -beai` | Download a copy of the NET Bible with all options enabled.|
 
 ### 3. Format the text in a text editor
 
@@ -45,4 +63,4 @@ Some crossreferences are sometimes still included, run `\<crossref intro.*crossr
 **There you go!** Now, just move the "Scripture" folder into your Obsidian vault. You can use the provided `The Bible.md` file as an overview file.
 
 ## Translations
-This script downloads the [World English Bible](https://worldenglish.bible/) by default. If you wish to use a different translation, open the `bg2obs.sh` file in a text editor and follow the annotations in there (It is just changing one line). Make sure to honour copyright guidelines.
+This script downloads the [World English Bible](https://worldenglish.bible/) by default. If you want to download a different translation, specify the version using the `-v` command-line switch as documented above. The list of abbreviations is available on the [Bible Gateway](https://www.biblegateway.com) site under the version drop-down menu in the search bar.  Make sure to honour copyright guidelines. The script has not been tested with all versions of the Bible available at Bible Gateway, though most of the more commonly-used ones should work.
