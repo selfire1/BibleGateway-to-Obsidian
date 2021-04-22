@@ -52,7 +52,7 @@ Several options are available via command-line switches. Type `bash bg2obs.sh -h
 #### Example usage
 | Command | Description |
 | ------- | ----------- | 
-|`bash bg2obs.sh -i NIV` | Download a copy of the NIV Bible with no other options.|
+|`bash bg2obs.sh -i -v NIV` | Download a copy of the NIV Bible with no other options.|
 |`bash bg2obs.sh -b` | Download a copy of the WEB Bible (default) with Jesus' words in bold. |
 |`bash bg2obs.sh -v NET -beai` | Download a copy of the NET Bible with all options enabled.|
 
