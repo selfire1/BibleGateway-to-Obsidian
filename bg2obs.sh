@@ -11,17 +11,46 @@
 # SETTINGS
 #----------------------------------------------------------------------------------
 # Setting a different translation:
-# Using the abbreviation, you can call on a different translation.
+# Using the abbreviation with the -v flag, you can call on a different translation.
 # It defaults to the "World English Bible", if you change the translation,
 # make sure to honour the copyright restrictions.
 #----------------------------------------------------------------------------------
 
-# OPTIONS
-translation="WEB" # Set translation
-boldwords="false" # Set 'true' for bolding words of Jesus
-headers="false" # Set 'true' for including editorial headers
-aliases="false" # Set 'true' to create an alias in the YAML front matter to a chapter title (e.g., 'Genesis 1')
+usage()
+{
+	echo "Usage: $0 [-beaih] [-v version]"
+	echo "  -v version   Specify the translation to download (default = WEB)"
+	echo "  -b    Set words of Jesus in bold"
+	echo "  -e    Include editorial headers"
+	echo "  -a    Create an alias in the YAML front matter for each chapter title"
+	echo "  -i    Show download information (i.e. verbose mode)"
+	echo "  -h    Display help"
+	exit 1
+}
 
+# Extract command line options
+
+# Clear translation variable if it exists and set defaults for others
+translation='WEB'    # Which translation to use
+boldwords="false"    # Set words of Jesus in bold
+headers="false"      # Include editorial headers
+aliases="false"      # Create an alias in the YAML front matter for each chapter title
+verbose="false"      # Show download progress for each chapter
+
+# Process command line args
+while getopts 'v:beai?h' c
+do
+	case $c in
+		v) translation=$OPTARG ;;
+		b) boldwords="true" ;;
+		e) headers="true" ;;
+		a) aliases="true" ;;
+		i) verbose="true" ;;
+		h|?) usage ;; 
+	esac
+done
+
+# Initialize variables
 book_counter=0 # Setting the counter to 0
 book_counter_max=66 # Setting the max amount to 66, since there are 66 books we want to import
 
@@ -38,17 +67,32 @@ lengtharray=(50 40 27 36 34 24 21 4 31 24 22 25 29 36 10 13 10 42 150 31 12 8 66
 declare -a abbarray # Delaring the abbreviations for each book. You can adapt if you'd like
 abbarray=(Gen Exod Lev Num Deut Josh Judg Ruth "1 Sam" "2 Sam" "1 Kings" "2 Kings" "1 Chron" "2 Chron" Ezr Neh Esth Job Ps Prov Eccles Song Isa Jer Lam Ezek Dan Hos Joel Am Obad Jonah Micah Nah Hab Zeph Hag Zech Mal Matt Mark Luke John Acts Rom "1 Cor" "2 Cor" Gal Ephes Phil Col "1 Thess" "2 Thess" "1 Tim" "2 Tim" Titus Philem Heb James "1 Pet" "2 Pet" "1 John" "2 John" "3 John" Jude Rev)
 
+if ${verbose} -eq "true"; then
+	echo "Starting download of ${translation} Bible."
+fi
 
  # Cycling through the book counter, setting which book and its maxchapter
   for ((book_counter=0; book_counter <= book_counter_max; book_counter++))
   do
 
+	if ${verbose} -eq "true"; then
+		echo ""   # Make a new line which the '-n' flag to the echo command prevents.
+	fi
+
     book=${bookarray[$book_counter]}
     maxchapter=${lengtharray[$book_counter]}
     abbreviation=${abbarray[$book_counter]}
 
+	if ${verbose} -eq "true"; then
+		echo -n "${book} "
+	fi
+
     for ((chapter=1; chapter <= maxchapter; chapter++))
     do
+
+    	if ${verbose} -eq "true"; then
+    		echo -n "."
+		fi
 
 ((prev_chapter=chapter-1)) # Counting the previous and next chapter for navigation
 ((next_chapter=chapter+1))
@@ -171,9 +215,16 @@ done # End of the book exporting loop
 # since the sed utility works differently on macOS and Linux variants. The perl should
 # work consistently.
 
-echo "Cleaning up the Markdown files..."
+if ${verbose} -eq "true"; then
+	echo ""
+	echo "Cleaning up the Markdown files."
+fi
 # Clear unnecessary headers
 find . -name "*.md" -print0 | xargs -0 perl -pi -e 's/#.*(#####\D[1]\D)/#$1/g'
 
 # Format verses into H6 headers
 find . -name "*.md" -print0 | xargs -0 perl -pi -e 's/######\s([0-9]\s|[0-9][0-9]\s|[0-9][0-9][0-9]\s)/\n\n###### v$1\n/g'
+
+if ${verbose} -eq "true"; then
+echo "Download complete. Markdown files ready for Obsidian import."
+fi
