@@ -1,6 +1,6 @@
 # BibleGateway-to-Obsidian-Catholic
 
-This is a fork of [selfire1/BibleGateway-to-Obsidian]https://github.com/selfire1/BibleGateway-to-Obsidian] to support Catholic translations of the Bible.
+This is a fork of [selfire1/BibleGateway-to-Obsidian](https://github.com/selfire1/BibleGateway-to-Obsidian) to support Catholic translations of the Bible.
 
 ### Updates include
 - `bg2md.rb`:
