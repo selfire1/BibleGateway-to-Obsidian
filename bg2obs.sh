@@ -19,7 +19,7 @@
 usage()
 {
 	echo "Usage: $0 [-beaih] [-v version]"
-	echo "  -v version   Specify the translation to download (default = WEB)"
+	echo "  -v version   Specify the translation to download (default = NABRE)"
 	echo "  -b    Set words of Jesus in bold"
 	echo "  -e    Include editorial headers"
 	echo "  -a    Create an alias in the YAML front matter for each chapter title"
@@ -31,11 +31,11 @@ usage()
 # Extract command line options
 
 # Clear translation variable if it exists and set defaults for others
-translation='WEB'    # Which translation to use
+translation='NABRE'    # Which translation to use
 boldwords="false"    # Set words of Jesus in bold
 headers="false"      # Include editorial headers
 aliases="false"      # Create an alias in the YAML front matter for each chapter title
-verbose="false"      # Show download progress for each chapter
+verbose="true"      # Show download progress for each chapter
 
 # Process command line args
 while getopts 'v:beai?h' c
@@ -52,20 +52,23 @@ done
 
 # Initialize variables
 book_counter=0 # Setting the counter to 0
-book_counter_max=66 # Setting the max amount to 66, since there are 66 books we want to import
+book_counter_max=73 # Setting the max amount to 73, since there are 73 books we want to import
+
 
 # Book list
+## (update to include Catholic books from USCCB: https://bible.usccb.org/bible)
 declare -a bookarray # Declaring the Books of the Bible as a list
-bookarray=(Genesis Exodus Leviticus Numbers Deuteronomy Joshua Judges Ruth "1 Samuel" "2 Samuel" "1 Kings" "2 Kings" "1 Chronicles" "2 Chronicles" Ezra Nehemiah Esther Job Psalms Proverbs Ecclesiastes "Song of Solomon" Isaiah Jeremiah Lamentations Ezekiel Daniel Hosea Joel Amos Obadiah Jonah Micah Nahum Habakkuk Zephaniah Haggai Zechariah Malachi Matthew Mark Luke John Acts
+bookarray=(Genesis Exodus Leviticus Numbers Deuteronomy Joshua Judges Ruth "1 Samuel" "2 Samuel" "1 Kings" "2 Kings" "1 Chronicles" "2 Chronicles" Ezra Nehemiah Tobit Judith Esther "1 Maccabees" "2 Maccabees" Job Psalms Proverbs Ecclesiastes "Song of Songs" Wisdom Sirach Isaiah Jeremiah Lamentations Baruch Ezekiel Daniel Hosea Joel Amos Obadiah Jonah Micah Nahum Habakkuk Zephaniah Haggai Zechariah Malachi Matthew Mark Luke John "Acts of the Apostles"
 Romans "1 Corinthians" "2 Corinthians" Galatians Ephesians Philippians Colossians "1 Thessalonians" "2 Thessalonians" "1 Timothy" "2 Timothy" Titus Philemon Hebrews James "1 Peter" "2 Peter" "1 John" "2 John" "3 John" Jude Revelation)
 
 # Book chapter list
 declare -a lengtharray # Declaring amount of chapters in each book
-lengtharray=(50 40 27 36 34 24 21 4 31 24 22 25 29 36 10 13 10 42 150 31 12 8 66 52 5 48 12 14 3 9 1 4 7 3 3 3 2 14 4 28 16 24 21 28 16 16 13 6 6 4 4 5 3 6 4 3 1 13 5 5 3 5 1 1 1 22)
+lengtharray=(50 40 27 36 34 24 21 4 31 24 22 25 29 36 10 13 14 16 10 16 15 42 150 31 12 8 19 51 66 52 5 6 48 12 14 3 9 1 4 7 3 3 3 2 14 4 28 16 24 21 28 16 16 13 6 6 4 4 5 3 6 4 3 1 13 5 5 3 5 1 1 1 22)
 
 # Abbreviation list
 declare -a abbarray # Delaring the abbreviations for each book. You can adapt if you'd like
-abbarray=(Gen Exod Lev Num Deut Josh Judg Ruth "1 Sam" "2 Sam" "1 Kings" "2 Kings" "1 Chron" "2 Chron" Ezr Neh Esth Job Ps Prov Eccles Song Isa Jer Lam Ezek Dan Hos Joel Am Obad Jonah Micah Nah Hab Zeph Hag Zech Mal Matt Mark Luke John Acts Rom "1 Cor" "2 Cor" Gal Ephes Phil Col "1 Thess" "2 Thess" "1 Tim" "2 Tim" Titus Philem Heb James "1 Pet" "2 Pet" "1 John" "2 John" "3 John" Jude Rev)
+abbarray=(Gen Ex Lev Num Deut Jos Judg Ruth "1 Sam" "2 Sam" "1 Kings" "2 Kings" "1 Chr" "2 Chr" Ezra Neh Tob Jdt Esth "1 Macc" "2 Macc" Job Ps Prov Eccl Song Wis Sir Isa Jer Lam Bar Ezek Dan Hos Joel Am Obad Jon Mic Nah Hab Zeph Hag Zech Mal Mt Mk Lk Jn Acts Rom "1 Cor" "2 Cor" Gal Eph Phil Col "1 Thess" "2 Thess" "1 Tim" "2 Tim" Titus Philem Heb Jas "1 Pet" "2 Pet" "1 Jn" "2 Jn" "3 Jn" Jude Rev)
+
 
 if ${verbose} -eq "true"; then
 	echo "Starting download of ${translation} Bible."
@@ -152,7 +155,7 @@ filename=${export_prefix}$export_number # Setting the filename
   text=$(echo $text | sed 's/^(.*?)v1/v1/') # Deleting unwanted headers
 
   # Formatting the title for markdown
-  title="# ${book} ${chapter}"
+  title="# ${book} ${chapter} (${translation})"
 
   # Navigation format
   export="${title}\n\n$navigation\n***\n\n$text\n\n***\n$navigation"

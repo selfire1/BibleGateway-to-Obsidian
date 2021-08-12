@@ -1,13 +1,15 @@
 # The Bible
 
-**Pentateuch (or the Law)**
+## Old Testament
+
+**Pentateuch**
 * [[Genesis]]
 * [[Exodus]]
 * [[Leviticus]]
 * [[Numbers]]
 * [[Deuteronomy]]
 
-**Historical Books**
+**Historical Introduction**
 * [[Joshua]]
 * [[Judges]]
 * [[Ruth]]
@@ -19,23 +21,30 @@
 * [[2 Chronicles]]
 * [[Ezra]]
 * [[Nehemiah]]
-* [[Esther]]
 
-**Books of Wisdom (or "Poetry")**
+**Biblical Novellas**
+* [[Tobit]]
+* [[Judith]]
+* [[Esther]]
+* [[1 Maccabees]]
+* [[2 Maccabees]]
+
+**Wisdom Books**
 * [[Job]]
-* [[Psalm]]
+* [[Psalms]]
 * [[Proverbs]]
 * [[Ecclesiastes]]
-* [[Song of Solomon]]
+* [[Song of Songs]]
+* [[Wisdom]]
+* [[Sirach]]
 
-**Major Prophets**
+**Prophetic Books**
 * [[Isaiah]]
 * [[Jeremiah]]
 * [[Lamentations]]
+* [[Baruch]]
 * [[Ezekiel]]
 * [[Daniel]]
-
-**Minor Prophets**
 * [[Hosea]]
 * [[Joel]]
 * [[Amos]]
@@ -49,17 +58,19 @@
 * [[Zechariah]]
 * [[Malachi]]
 
-***
-**Gospels**
+
+## New Testament
+
+**The Gospels**
 * [[Matthew]]
 * [[Mark]]
 * [[Luke]]
 * [[John]]
 
 **Church History**
-* [[Acts]]
+* [[Acts of the Apostles]]
 
-**Pauline Epistles**
+**New Testament Letters**
 * [[Romans]]
 * [[1 Corinthians]]
 * [[2 Corinthians]]
@@ -73,9 +84,9 @@
 * [[2 Timothy]]
 * [[Titus]]
 * [[Philemon]]
-
-**General Epistles**
 * [[Hebrews]]
+
+**Catholic Letters**
 * [[James]]
 * [[1 Peter]]
 * [[2 Peter]]
@@ -83,6 +94,4 @@
 * [[2 John]]
 * [[3 John]]
 * [[Jude]]
-
-**Apocalyptic Writing (Prophecy)**
 * [[Revelation]]

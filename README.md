@@ -1,3 +1,61 @@
+# BibleGateway-to-Obsidian-Catholic
+
+This is a fork of [selfire1/BibleGateway-to-Obsidian]https://github.com/selfire1/BibleGateway-to-Obsidian] to support Catholic translations of the Bible.
+
+### Updates include
+- `bg2md.rb`:
+  - Move to same directory as `bg2obs.sh`
+- `bg2obs.sh`:
+  - Update total book count to 73
+  - Update book list for Catholic bible (source: [USCCB](https://bible.usccb.org/bible))
+  - Update abbreviations in `abbarray` to match the *Catechism of the Catholic Church* (last page)
+  - Change default translation from "WEB" to "NABRE"
+  - Add translation to note title to facilitate working with multiple translations in Obsidian
+- `The Bible.md` updates:
+  - Update book list for Catholic bible (source: [USCCB](https://bible.usccb.org/bible))
+
+### Setup & Usage
+
+These are the steps I followed to get set up:
+- clone this repo
+- install missing packages: `sudo gem install colorize optparse clipboard`
+- add custom CSS snippet for verse h6 headers using [this link](https://forum.obsidian.md/t/organising-the-bible-in-obsidian/1490/92)
+- I ran the script for three Catholic translations:
+  - `bash bg2obs.sh -v NABRE -i -e`
+  - `bash bg2obs.sh -v RSVCE -i -e`
+  - `bash bg2obs.sh -v NRSVCE -i -e`
+- copy resulting `Scripture (NABRE)` to your Obsidian vault
+
+
+### Multiple Translations in Obsidian
+It is possible to work with multiple translations in Obsidian by pasting each translation into a separate folder. My `Obsidian` directory in iCloud looks like this, using several translations [recommended by the USCCB](https://www.usccb.org/offices/new-american-bible/approved-translations-bible):
+
+```bash
+.
+└── Obsidian
+    ├── Scripture (NABRE)
+    ├── Scripture (NRSVCE)
+    └── Scripture (RSVCE)
+```
+
+You can then reference multiple translations:
+![](images/multiple_translations.png)
+
+When I use a short filepath (`[[Job-01#v21]]`) rather than the full filepath (`[[Scripture (NABRE)/22 - Job/Job-01#v21]]`) it defaults to the NABRE translation, which I think may be because I copied it into my Obsidian vault first? If you know how Obsidian handles this please <a href="mailto:m.kudija@gmail.com">let me know</a>.
+
+### Linking Ranges
+The forum has suggested a couple of options for linking ranges of verses:
+- [in line or hyphenated](https://forum.obsidian.md/t/bible-study-in-obsidian-kit-including-the-bible-in-markdown/12503/51)
+- [separated by hyphen](https://forum.obsidian.md/t/bible-study-in-obsidian-kit-including-the-bible-in-markdown/12503/76)
+- [headers](https://forum.obsidian.md/t/bible-study-in-obsidian-kit-including-the-bible-in-markdown/12503/91)
+
+This is what I tried:
+![](images/linked_ranges.png)
+
+--- 
+
+*the remainder of this README is unchanged*
+
 # BibleGateway-to-Obsidian
 This script adapts [jgclark's wonderful BibleGateway-to-Markdown](https://github.com/jgclark/BibleGateway-to-Markdown) script to export for use in [Obsidian](https://obsidian.md/). It accompanies a [Bible Study in Obsidian Kit](https://forum.obsidian.md/t/bible-study-in-obsidian-kit-including-the-bible-in-markdown/12503?u=selfire) that gets you hands-on with using Scripture in your personal notes.
 
