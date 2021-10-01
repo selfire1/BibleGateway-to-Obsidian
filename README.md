@@ -72,7 +72,7 @@ This script downloads the [World English Bible](https://worldenglish.bible/) by 
 
 A fork of this repo supports Catholic translations: [mkudija/BibleGateway-to-Obsidian-Catholic](https://github.com/mkudija/BibleGateway-to-Obsidian-Catholic).
 
-## Troubleshooting
+## Troubleshooting ⚠️
 Below are steps to common issues when using the script. If this still doesn't solve your issue, feel free to [get in touch](https://joschuasgarden.com/Contact+me) and I will attempt to fix it!
 
 ### Problems loading ruby/gems
