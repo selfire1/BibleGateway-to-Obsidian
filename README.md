@@ -71,3 +71,14 @@ Some crossreferences are sometimes still included, run `\<crossref intro.*crossr
 This script downloads the [World English Bible](https://worldenglish.bible/) by default. If you want to download a different translation, specify the version using the `-v` command-line switch as documented above. The list of abbreviations is available on the [Bible Gateway](https://www.biblegateway.com) site under the version drop-down menu in the search bar.  Make sure to honour copyright guidelines. The script has not been tested with all versions of the Bible available at Bible Gateway, though most of the more commonly-used ones should work.
 
 A fork of this repo supports Catholic translations: [mkudija/BibleGateway-to-Obsidian-Catholic](https://github.com/mkudija/BibleGateway-to-Obsidian-Catholic).
+
+## Troubleshooting
+Below are steps to common issues when using the script. If this still doesn't solve your issue, feel free to [get in touch](https://joschuasgarden.com/Contact+me) and I will attempt to fix it!
+
+### Problems loading ruby/gems
+An error like this indicates ruby or the gems aren't installed properly: `in require: cannot load such file -- colorize (LoadError)`
+
+**Solutions**
+* Have a look at the [bg2md installation guide](https://github.com/jgclark/BibleGateway-to-Markdown/tree/7aaa4cdaba5d8ebb2e7e3fa5ace7de96c1534846#installation) to make sure you installed ruby and gems properly.
+* Run the gem install with admin privileges: `sudo gem install colorize optparse clipboard`.
+* Re-install ruby and gems.
