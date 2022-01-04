@@ -160,8 +160,6 @@ filename=${export_prefix}$chapter # Setting the filename
   # Creating a folder for the book of the Bible if it doesn't exist, otherwise moving new file into existing folder
   mkdir -p "./Scripture (${translation})/${folder_name}"; mv "${filename}".md './Scripture ('"${translation}"')/'"${folder_name}"
 
-  # Append the bookname to "The Bible" file
-  echo -e "\n* ${book}" >> "${biblename}.md"
 
 done # End of the book exporting loop
 
@@ -170,6 +168,8 @@ done # End of the book exporting loop
   echo -e $overview_file >> "$book.md"
   mv "$book.md" './Scripture ('"${translation}"')/'"${folder_name}"
 
+  # Append the bookname to "The Bible" file
+  echo -e "\n* [[${book}]]" >> "${biblename}.md"
   done
 
 # Tidy up the Markdown files by removing unneeded headers and separating the verses
