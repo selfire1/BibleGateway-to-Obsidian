@@ -64,12 +64,11 @@ declare -a lengtharray # Declaring amount of chapters in each book
 # -------------------------------------------
 # For Translation, translate these three lists. Seperated by space and wrapped in quotes if they include whitespace.
 # Name of "The Bible" in your language
-biblename="The Bible"
+biblename="Die Bibel"
 # Full names of the books of the Bible
-bookarray=(Genesis Exodus Leviticus Numbers Deuteronomy Joshua Judges Ruth "1 Samuel" "2 Samuel" "1 Kings" "2 Kings" "1 Chronicles" "2 Chronicles" Ezra Nehemiah Esther Job Psalms Proverbs Ecclesiastes "Song of Solomon" Isaiah Jeremiah Lamentations Ezekiel Daniel Hosea Joel Amos Obadiah Jonah Micah Nahum Habakkuk Zephaniah Haggai Zechariah Malachi Matthew Mark Luke John Acts
-Romans "1 Corinthians" "2 Corinthians" Galatians Ephesians Philippians Colossians "1 Thessalonians" "2 Thessalonians" "1 Timothy" "2 Timothy" Titus Philemon Hebrews James "1 Peter" "2 Peter" "1 John" "2 John" "3 John" Jude Revelation)
+bookarray=("1. Mose" "2. Mose" "3. Mose" "4. Mose" "5. Mose" Josua Richter Ruth "1. Samuel" "2. Samuel" "1. Könige" "2. Könige" "1. Chronik" "2. Chronik" Esra Nehemiah Esther Hiob Psalmen Sprüche Prediger Hohelied Jesaja Jeremia Klagelieder Hesekiel Daniel Hosea Joel Amos Obadja Jona Micha Nahum Habakuk Zephanja Haggai Sacharja Maleachi Matthäus Markus Lukas Johannes Apostelgeschichte Römer "1. Korinther" "2. Korinther" Galater Epheser Philipper Kolosser "1. Thessalonicher" "2. Thessalonicher" "1. Timotheus" "2. Timotheus" Titus Philemon Hebräer Jakobus "1. Petrus" "2. Petrus" "1. Johannes" "2. Johannes" "3. Johannes" Judas Offenbarung)
 # Short names of the books of the Bible
-abbarray=(Gen Exod Lev Num Deut Josh Judg Ruth "1 Sam" "2 Sam" "1 Kings" "2 Kings" "1 Chron" "2 Chron" Ezr Neh Esth Job Ps Prov Eccles Song Isa Jer Lam Ezek Dan Hos Joel Am Obad Jonah Micah Nah Hab Zeph Hag Zech Mal Matt Mark Luke John Acts Rom "1 Cor" "2 Cor" Gal Ephes Phil Col "1 Thess" "2 Thess" "1 Tim" "2 Tim" Titus Philem Heb James "1 Pet" "2 Pet" "1 John" "2 John" "3 John" Jude Rev)
+abbarray=(1Mo 2Mo 3Mo 4Mo 5Mo Jos Ri Ru 1Sa 2Sa 1Kö 2Kö 1Ch 2Ch Esr Ne Est Hi Ps Spr Pr Hoh Jes Jer Klg Hes Da Hos Joel Am Ob Jon Mi Nah Hab Ze Hag Sach Mal Mat Mar Luk Joh Apg Rö 1Ko 2Ko Gal Eph Php Kol 1Th 2Th 1Ti 2Ti Tit Phm Heb Jak 1Pe 2Pe 1Jo 2Jo 3Jo Jud Off)
 # -------------------------------------------
 
 # Book chapter list
