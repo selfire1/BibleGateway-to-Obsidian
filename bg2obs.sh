@@ -190,7 +190,7 @@ find . -name "*.md" -print0 | xargs -0 perl -pi -e 's/#.*(#####\D[1]\D)/#$1/g'
 find . -name "*.md" -print0 | xargs -0 perl -pi -e 's/######\s([0-9]\s|[0-9][0-9]\s|[0-9][0-9][0-9]\s)/\n\n###### $1\n/g'
 
 # Delete crossreferences
-find . -name "*.md" -print0 | xargs -0 perl -pi -e 's/\<crossref intro(.*)crossref\>/$1/g'
+find . -name "*.md" -print0 | xargs -0 perl -pi -e 's/\<crossref intro.*crossref\>//g'
 
 if ${verbose} -eq "true"; then
 echo "Download complete. Markdown files ready for Obsidian import."
