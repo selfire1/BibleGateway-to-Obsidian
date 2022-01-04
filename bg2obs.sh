@@ -169,7 +169,7 @@ done # End of the book exporting loop
   mv "$book.md" './Scripture ('"${translation}"')/'"${folder_name}"
 
   # Append the bookname to "The Bible" file
-  echo -e "\n* [[${book}]]" >> "${biblename}.md"
+  echo -e "* [[${book}]]" >> "${biblename}.md"
   done
 
 # Tidy up the Markdown files by removing unneeded headers and separating the verses

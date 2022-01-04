@@ -2,3 +2,11 @@
 
 
 * [[Genesis]]
+
+* [[Exodus]]
+
+* [[Leviticus]]
+
+* [[Numbers]]
+
+* [[Deuteronomy]]
