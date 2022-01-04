@@ -64,12 +64,12 @@ declare -a lengtharray # Declaring amount of chapters in each book
 # -------------------------------------------
 # For Translation, translate these three lists. Seperated by space and wrapped in quotes if they include whitespace.
 # Name of "The Bible" in your language
-biblename="The Bible"
+biblename="La Bible"
 # Full names of the books of the Bible
-bookarray=(Genesis Exodus Leviticus Numbers Deuteronomy Joshua Judges Ruth "1 Samuel" "2 Samuel" "1 Kings" "2 Kings" "1 Chronicles" "2 Chronicles" Ezra Nehemiah Esther Job Psalms Proverbs Ecclesiastes "Song of Solomon" Isaiah Jeremiah Lamentations Ezekiel Daniel Hosea Joel Amos Obadiah Jonah Micah Nahum Habakkuk Zephaniah Haggai Zechariah Malachi Matthew Mark Luke John Acts
-Romans "1 Corinthians" "2 Corinthians" Galatians Ephesians Philippians Colossians "1 Thessalonians" "2 Thessalonians" "1 Timothy" "2 Timothy" Titus Philemon Hebrews James "1 Peter" "2 Peter" "1 John" "2 John" "3 John" Jude Revelation)
+bookarray=(Genese Exode Levitique Numbres Deuteronome Josue Juges Ruth "1 Samuel" "2 Samuel" "1 Rois" "2 Rois" "1 Chroniques" "2 Chroniques" Ezra Nehemie Esther Job Psaumes Proverbes Ecclesiaste "Chants de Salomon" Esaie Jeremie Lamentations Ezekiel Daniel Osee Joel Amos Abdias Jonas Michee Nahum Habacuc Sophonie Aggee Zacharie Malachie Matthieu Marc Luc Jean Actes
+Romains "1 Corinthiens" "2 Corinthiens" Galates Ephesiens Philippiens Colossiens "1 Thessaloniciens" "2 Thessaloniciens" "1 Timothee" "2 Timothee" Tite Philemon Hebreux Jacques "1 Pierre" "2 Pierre" "1 Jean" "2 Jean" "3 Jean" Jude Apocalypse)
 # Short names of the books of the Bible
-abbarray=(Gen Exod Lev Num Deut Josh Judg Ruth "1 Sam" "2 Sam" "1 Kings" "2 Kings" "1 Chron" "2 Chron" Ezr Neh Esth Job Ps Prov Eccles Song Isa Jer Lam Ezek Dan Hos Joel Am Obad Jonah Micah Nah Hab Zeph Hag Zech Mal Matt Mark Luke John Acts Rom "1 Cor" "2 Cor" Gal Ephes Phil Col "1 Thess" "2 Thess" "1 Tim" "2 Tim" Titus Philem Heb James "1 Pet" "2 Pet" "1 John" "2 John" "3 John" Jude Rev)
+abbarray=(Gen Exod Lev Nom Deu Jos Jug Rut "1 Sam" "2 Sam" "1 Roi" "2 Roi" "1 Chro" "2 Chro" Ezr Neh Est Job Ps Prov Eccles Can Esa Jer Lam Ezek Dan Ose Joel Am Abd Jona Mic Nah Hab Zeph Hag Zech Mal Matt Mar Luc Jean Act Rom "1 Cor" "2 Cor" Gal Ephes Phil Col "1 Thess" "2 Thess" "1 Tim" "2 Tim" Tite Philem Heb Jacq "1 Pi" "2 Pie" "1 Jean" "2 Jean" "3 Jean" Jude Apo)
 # -------------------------------------------
 
 # Book chapter list
