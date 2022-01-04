@@ -8,7 +8,7 @@ This script is intended to be as simple as possible to use, even if you have no 
 ## Translations
 This repository is also available in
 * 🇬🇧 [English](https://github.com/selfire1/BibleGateway-to-Obsidian/tree/master)
-* 🇫🇷 [French](https://github.com/selfire1/BibleGateway-to-Obsidian/tree/translation-fr) (Merci @fullbright)
+* 🇫🇷 [French](https://github.com/selfire1/BibleGateway-to-Obsidian/tree/translation-fr) (Merci `@fullbright`!)
 * 🇩🇪 [German](https://github.com/selfire1/BibleGateway-to-Obsidian/tree/translation-de)
 
 ## Disclaimers
