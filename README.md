@@ -4,22 +4,20 @@ This script adapts [jgclark's BibleGateway-to-Markdown](https://github.com/jgcla
 What the script does is fetch the text from [Bible Gateway](https://www.biblegateway.com/) and save it as formatted markdown file. Each chapter is saved as one file and navigation between files as well as a book-file is automatically created. All of the chapter files of a book are saved in its numbered folder.
 
 This script is intended to be as simple as possible to use, even if you have no idea about Scripting. If you have any questions, please reach out to me either on github or Discord (`selfire#3095`).
-***
-> You can help me keep creating tools like this by [buying me a coffee](https://www.buymeacoffee.com/joschua) ☕️.
 
-<a href="https://www.buymeacoffee.com/joschua" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height= "48" width="173"></a>
+## Translations
+This repository is also available in
+* 🇫🇷 French
+* 🇩🇪 German
 
-
-## Important Disclaimers
+## Disclaimers
 * This is not affiliated to, or approved by, BibleGateway.com. In my understanding it fits into the [conditions of usage](https://support.biblegateway.com/hc/en-us/articles/360001398808-How-do-I-get-permission-to-use-or-reprint-Bible-content-from-Bible-Gateway-?) but I make no guarantee regarding the usage of the script, it is at your own disgression.
 * By default, the version is set to the [WEB Bible](https://worldenglish.bible/). You can change the version, as long as you honour the copyright standards of different translations of the Bible (See: [BibleGateways overview](https://www.biblegateway.com/versions/)).
-* I have little experience in scripting–through this project I taught myself bash and regex basics. If you run into issues or have a way to simplify this script, please raise an issue or reach out on Discord (`selfire#3095`).
 
 ## Installation
 Here are the tools we are going to use:
 * Our command line (Terminal)
-* ~A text editor (like [Atom](https://atom.io/)).~
-* A text editor is no longer necessary but if you're on Windows you might need to [install perl](https://www.perl.org/get.html).
+* On Windows you might need to [install perl](https://www.perl.org/get.html).
 
 ## Setting ruby up
 ### Updating
@@ -40,7 +38,7 @@ Put both scripts (`bg2md.rb` and `bg2obs.sh`) in the same directory, open your t
 ### 2. Run the script
 Once you have navigated to the directory containing both scripts, run `bash bg2obs.sh`. This will run the bash script.
 
-`NOTE`: In this directory, a folder called `Scripture` with subfolders like `01 - Genesis`, `02 - Exodus` and so on will be created.
+`NOTE`: In this directory, a folder called `Scripture` with subfolders like `Genesis`, `Exodus` and so on will be created.
 
 Several options are available via command-line switches. Type `bash bg2obs.sh -h` at any time to display them.
 
@@ -82,3 +80,16 @@ An error like this indicates ruby or the gems aren't installed properly: `in req
 * Have a look at the [bg2md installation guide](https://github.com/jgclark/BibleGateway-to-Markdown/tree/7aaa4cdaba5d8ebb2e7e3fa5ace7de96c1534846#installation) to make sure you installed ruby and gems properly.
 * Run the gem install with admin privileges: `sudo gem install colorize optparse clipboard`.
 * Re-install ruby and gems.
+
+## Contributing
+You can help me keep creating tools like this by [buying me a coffee](https://www.buymeacoffee.com/joschua).  ☕️
+
+<a href="https://www.buymeacoffee.com/joschua" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height= "48" width="173"></a>
+
+### Translations
+You can contribute by translating this script into your language.
+
+- [ ] Translate name of the Bible, its books and abbreviations ([line 62](https://github.com/selfire1/BibleGateway-to-Obsidian/blob/97f873132dceb2504b765056914bd3dd927f6691/bg2obs.sh#L62))
+- [ ] Optional: Translate `README.md`
+
+Pull requests are welcome, or send me a message and I will implement your translation.
