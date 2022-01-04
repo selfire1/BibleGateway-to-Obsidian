@@ -164,22 +164,6 @@ done # End of the book exporting loop
 
   done
 
-  
-  #----------------------------------------------------------------------------------
-  # The Output of this text needs to be formatted slightly to fit with use in Obsidian
-  # Enable Regex and run find and replace:
-    # *Clean up unwanted headers*
-      # Find: ^[\w\s]*(######)
-      # Replace: \n$1
-      # file: *.md
-    # Clean up verses
-      # Find: (######\sv\d)
-      # Replace: \n\n$1\n
-      # file: *.md
-  #----------------------------------------------------------------------------------
-
-# Not sure if the comments above are still needed, so leaving them for now.
-
 # Tidy up the Markdown files by removing unneeded headers and separating the verses
 # with some blank space and an H6-level verse number.
 #
