@@ -6,9 +6,9 @@ What the script does is fetch the text from [Bible Gateway](https://www.biblegat
 This script is intended to be as simple as possible to use, even if you have no idea about Scripting. If you have any questions, please reach out to me either on github or Discord (`selfire#3095`).
 
 ## Translations
-This repository is available in
+This repository is also available in
 * 🇬🇧 [English](https://github.com/selfire1/BibleGateway-to-Obsidian/tree/master)
-* 🇫🇷 [French](https://github.com/selfire1/BibleGateway-to-Obsidian/tree/translation-fr)
+* 🇫🇷 [French](https://github.com/selfire1/BibleGateway-to-Obsidian/tree/translation-fr) (Merci `@fullbright`!)
 * 🇩🇪 [German](https://github.com/selfire1/BibleGateway-to-Obsidian/tree/translation-de)
 
 ## Disclaimers
