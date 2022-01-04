@@ -162,7 +162,7 @@ filename=${export_prefix}$chapter # Setting the filename
   folder_name="${book}" # Setting the folder name
 
   # Creating a folder for the book of the Bible if it doesn't exist, otherwise moving new file into existing folder
-  mkdir -p "./${biblename} (${translation})/${folder_name}"; mv "${filename}".md './${biblename} ('"${translation}"')/'"${folder_name}"
+  mkdir -p "./${biblename} (${translation})/${folder_name}"; mv "${filename}".md "./${biblename} (${translation})/${folder_name}"
 
 
 done # End of the book exporting loop
@@ -170,7 +170,7 @@ done # End of the book exporting loop
   # Create an overview file for each book of the Bible:
   overview_file="links: [[${biblename}]]\n# ${book}\n\n[[${abbreviation} 1|Start Reading →]]"
   echo -e $overview_file >> "$book.md"
-  mv "$book.md" "./${biblename} ('"${translation}"')/""${folder_name}"
+  mv "$book.md" "./${biblename} (${translation})/${folder_name}"
 
   # Append the bookname to "The Bible" file
   echo -e "* [[${book}]]" >> "${biblename}.md"
