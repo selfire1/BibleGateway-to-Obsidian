@@ -7,8 +7,9 @@ This script is intended to be as simple as possible to use, even if you have no 
 
 ## Translations
 This repository is also available in
-* 🇫🇷 French
-* 🇩🇪 German
+* 🇬🇧 [English](https://github.com/selfire1/BibleGateway-to-Obsidian/tree/master)
+* 🇫🇷 [French](https://github.com/selfire1/BibleGateway-to-Obsidian/tree/translation-fr)
+* 🇩🇪 [German](https://github.com/selfire1/BibleGateway-to-Obsidian/tree/translation-de)
 
 ## Disclaimers
 * This is not affiliated to, or approved by, BibleGateway.com. In my understanding it fits into the [conditions of usage](https://support.biblegateway.com/hc/en-us/articles/360001398808-How-do-I-get-permission-to-use-or-reprint-Bible-content-from-Bible-Gateway-?) but I make no guarantee regarding the usage of the script, it is at your own disgression.
