@@ -98,27 +98,9 @@ fi
 ((next_chapter=chapter+1))
 
 # Exporting
-  export_prefix="${abbreviation}-" # Setting the first half of the filename
+  export_prefix="${abbreviation} " # Setting the first half of the filename
+filename=${export_prefix}$chapter # Setting the filename
 
-  if (( ${chapter} < 10 )); then # Making sure single digit numbers are preceded by a 0 for proper sorting
-    #statements
-    export_number="0${chapter}"
-  else
-    export_number=${chapter}
-  fi
-
-filename=${export_prefix}$export_number # Setting the filename
-
-# Navigation in the note
-  if (( ${prev_chapter} < 10 )); then # Turning single into double digit numbers
-    #statements
-    prev_chapter="0${prev_chapter}"
-  fi
-
-  if (( ${next_chapter} < 10 )); then # Turning single into double digit numbers
-    #statements
-    next_chapter="0${next_chapter}"
-  fi
 
   prev_file=${export_prefix}$prev_chapter # Naming previous and next files
   next_file=${export_prefix}$next_chapter
@@ -167,16 +149,7 @@ filename=${export_prefix}$export_number # Setting the filename
 
   # Creating a folder
 
-  ((actual_num=book_counter+1)) # Proper number counting for the folder
-
-  if (( $actual_num < 10 )); then
-    #statements
-    actual_num="0${actual_num}"
-  else
-    actual_num=$actual_num
-  fi
-
-  folder_name="${actual_num} - ${book}" # Setting the folder name
+  folder_name="${book}" # Setting the folder name
 
   # Creating a folder for the book of the Bible if it doesn't exist, otherwise moving new file into existing folder
   mkdir -p "./Scripture (${translation})/${folder_name}"; mv "${filename}".md './Scripture ('"${translation}"')/'"${folder_name}"
@@ -185,9 +158,8 @@ filename=${export_prefix}$export_number # Setting the filename
 done # End of the book exporting loop
 
   # Create an overview file for each book of the Bible:
-  overview_file="links: [[The Bible]]\n# ${book}\n\n[[${abbreviation}-01|Start Reading →]]"
+  overview_file="links: [[The Bible]]\n# ${book}\n\n[[${abbreviation} 1|Start Reading →]]"
   echo -e $overview_file >> "$book.md"
-  #mkdir -p ./Scripture ("${translation}")/"${folder_name}"; mv "$book.md" './Scripture ('"${translation}"')/'"${folder_name}"
   mv "$book.md" './Scripture ('"${translation}"')/'"${folder_name}"
 
   done
@@ -223,7 +195,7 @@ fi
 find . -name "*.md" -print0 | xargs -0 perl -pi -e 's/#.*(#####\D[1]\D)/#$1/g'
 
 # Format verses into H6 headers
-find . -name "*.md" -print0 | xargs -0 perl -pi -e 's/######\s([0-9]\s|[0-9][0-9]\s|[0-9][0-9][0-9]\s)/\n\n###### v$1\n/g'
+find . -name "*.md" -print0 | xargs -0 perl -pi -e 's/######\s([0-9]\s|[0-9][0-9]\s|[0-9][0-9][0-9]\s)/\n\n###### $1\n/g'
 
 if ${verbose} -eq "true"; then
 echo "Download complete. Markdown files ready for Obsidian import."
