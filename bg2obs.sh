@@ -215,7 +215,6 @@ alias="Aliases: [${book} ${chapter}]" # Add other aliases or 'Tags:' here if des
   fi
 
 # Printing YAML
-  echo "Alias: ${aliases} // BC YAML: ${breadcrumbs_yaml}"
   if [ ${aliases} == "true" ] && [ ${breadcrumbs_yaml} == "false" ]; then
     yaml="${yaml_start}${alias}${yaml_end}"
   elif [ ${aliases} == "true" ] && [ ${breadcrumbs_yaml} == "true" ]; then
