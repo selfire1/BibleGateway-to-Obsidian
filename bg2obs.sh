@@ -132,10 +132,10 @@ filename=${export_prefix}$chapter # Setting the filename
   next_file=${export_prefix}$next_chapter
 
   # Navigation with INLINE BREADCRUMBS DISABLED and YAML DISABLED – write normal navigation
-  if [${breadcrumbs_inline} -eq "false" && ${breadcrumbs_yaml} -eq "false"]; then
+  if [[ ${breadcrumbs_inline} -eq "false" && ${breadcrumbs_yaml} -eq "false" ]]; then
 
   # Formatting Navigation and omitting links that aren't necessary
-  if [ ${maxchapter} -eq 1 ]; then
+  if [[ ${maxchapter} -eq 1 ]]; then
     # For a book that only has one chapter
     navigation="[[${book}]]"
   elif [ ${chapter} -eq ${maxchapter} ]; then
@@ -185,7 +185,7 @@ filename=${export_prefix}$chapter # Setting the filename
   title="# ${book} ${chapter}"
 
   # Navigation format
-  if [${breadcrumbs_yaml} -eq "true"]; then
+  if [[ ${breadcrumbs_yaml} -eq "true" ]]; then
   export="${title}\n***\n\n$text"
   else
   export="${title}\n\n$navigation\n***\n\n$text\n\n***\n$navigation"
@@ -215,11 +215,15 @@ alias="Aliases: [${book} ${chapter}]" # Add other aliases or 'Tags:' here if des
   fi
 
 # Printing YAML
-  if [${aliases} -eq "true" && ${breadcrumbs_yaml} -eq "false"]; then
-    yaml="${yaml_start}${aliases}${yaml_end}"
-  elif [${aliases} -eq "true" && ${breadcrumbs_yaml} -eq "true"]; then
-    yaml="${yaml_start}${aliases}\n${bc_yaml}${yaml_end}"
-    elif [${aliases} -eq "false" && ${breadcrumbs_yaml} -eq "true"]; then
+  echo "Alias: ${aliases} // BC YAML: ${breadcrumbs_yaml}"
+  if [ ${aliases} == "true" ] && [ ${breadcrumbs_yaml} == "false" ]; then
+  echo "Alias true, YAML false"
+    yaml="${yaml_start}${alias}${yaml_end}"
+  elif [ ${aliases} == "true" ] && [ ${breadcrumbs_yaml} == "true" ]; then
+  echo "Alias true, YAML true"
+    yaml="${yaml_start}${alias}\n${bc_yaml}${yaml_end}"
+    elif [ ${aliases} == "false" ] && [ ${breadcrumbs_yaml} == "true" ]; then
+  echo "Alias false, YAML true"
     yaml="${yaml_start}${bc_yaml}${yaml_end}"
   fi
   
