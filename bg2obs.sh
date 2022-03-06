@@ -3,7 +3,7 @@
 # This script runs Jonathan clark's bg2md.rb ruby script and formats the output
 # to be useful in Obsidian. Find the script here: https://github.com/jgclark/BibleGateway-to-Markdown
 #
-# It needs to be run in the same directoy as the 'bg2md.rb' script and will output
+# It needs to be run in the same directory as the 'bg2md.rb' script and will output
 # one .md file for each chapter, organising them in folders corresponding to the book.
 # Navigation on the top and bottom is also added.
 #
@@ -18,12 +18,14 @@
 
 usage()
 {
-	echo "Usage: $0 [-beaih] [-v version]"
+	echo "Usage: $0 [-beaicyh] [-v version]"
 	echo "  -v version   Specify the translation to download (default = WEB)"
 	echo "  -b    Set words of Jesus in bold"
 	echo "  -e    Include editorial headers"
 	echo "  -a    Create an alias in the YAML front matter for each chapter title"
 	echo "  -i    Show download information (i.e. verbose mode)"
+	echo "  -c    Include inline navigation for the breadcrumbs plugin (e.g. 'up', 'next','previous')"
+	echo "  -y    Print navigation for the breadcrumbs plugin (e.g. 'up', 'next','previous') in the frontmatter (YAML)"
 	echo "  -h    Display help"
 	exit 1
 }
@@ -36,9 +38,11 @@ boldwords="false"    # Set words of Jesus in bold
 headers="false"      # Include editorial headers
 aliases="false"      # Create an alias in the YAML front matter for each chapter title
 verbose="false"      # Show download progress for each chapter
+breadcrumbs_inline="false"      # Print breadcrumbs in the file
+breadcrumbs_yaml="false"      # Print breadcrumbs in the YAML
 
 # Process command line args
-while getopts 'v:beai?h' c
+while getopts 'v:beaicy?h' c
 do
 	case $c in
 		v) translation=$OPTARG ;;
@@ -46,6 +50,8 @@ do
 		e) headers="true" ;;
 		a) aliases="true" ;;
 		i) verbose="true" ;;
+		c) breadcrumbs_inline="true" ;;
+		y) breadcrumbs_yaml="true" ;;
 		h|?) usage ;; 
 	esac
 done
@@ -118,12 +124,15 @@ fi
 ((next_chapter=chapter+1))
 
 # Exporting
-  export_prefix="${abbreviation} " # Setting the first half of the filename
+export_prefix="${abbreviation} " # Setting the first half of the filename
 filename=${export_prefix}$chapter # Setting the filename
 
 
   prev_file=${export_prefix}$prev_chapter # Naming previous and next files
   next_file=${export_prefix}$next_chapter
+
+  # Navigation with INLINE BREADCRUMBS DISABLED and YAML DISABLED – write normal navigation
+  if [${breadcrumbs_inline} -eq "false" && ${breadcrumbs_yaml} -eq "false"]; then
 
   # Formatting Navigation and omitting links that aren't necessary
   if [ ${maxchapter} -eq 1 ]; then
@@ -138,6 +147,25 @@ filename=${export_prefix}$chapter # Setting the filename
   else
     # Navigation for everything else
     navigation="[[${prev_file}|← ${book} ${prev_chapter}]] | [[${book}]] | [[${next_file}|${book} ${next_chapter} →]]"
+  fi
+  fi
+
+  # Navigation with INLINE BREADCRUMBS ENABLED
+  if ${breadcrumbs_inline} -eq "true"; then
+  # Formatting Navigation and omitting links that aren't necessary
+  if [ ${maxchapter} -eq 1 ]; then
+    # For a book that only has one chapter
+    navigation="(up:: [[${book}]])"
+  elif [ ${chapter} -eq ${maxchapter} ]; then
+    # If this is the last chapter of the book
+    navigation="(previous:: [[${prev_file}|← ${book} ${prev_chapter}]]) | (up:: [[${book}]])"
+  elif [ ${chapter} -eq 1 ]; then
+    # If this is the first chapter of the book
+    navigation="(up:: [[${book}]]) | (next:: [[${next_file}|${book} ${next_chapter} →]])"
+  else
+    # Navigation for everything else
+    navigation="(previous:: [[${prev_file}|← ${book} ${prev_chapter}]]) | (up:: [[${book}]]) | (next:: [[${next_file}|${book} ${next_chapter} →]])"
+  fi
   fi
 
   if ${boldwords} -eq "true" && ${headers} -eq "false"; then
@@ -157,13 +185,46 @@ filename=${export_prefix}$chapter # Setting the filename
   title="# ${book} ${chapter}"
 
   # Navigation format
+  if [${breadcrumbs_yaml} -eq "true"]; then
+  export="${title}\n***\n\n$text"
+  else
   export="${title}\n\n$navigation\n***\n\n$text\n\n***\n$navigation"
-  if ${aliases} -eq "true"; then
-    alias="---\nAliases: [${book} ${chapter}]\n---\n" # Add other aliases or 'Tags:' here if desired. Make sure to follow proper YAML format.
-    export="${alias}${export}"
+  fi
+
+# YAML
+yaml_start="---\n"
+yaml_end="\n---\n"
+alias="Aliases: [${book} ${chapter}]" # Add other aliases or 'Tags:' here if desired. Make sure to follow proper YAML format.
+
+  # Navigation with INLINE BREADCRUMBS ENABLED
+  if ${breadcrumbs_yaml} -eq "true"; then
+  # Formatting Navigation and omitting links that aren't necessary
+  if [ ${maxchapter} -eq 1 ]; then
+    # For a book that only has one chapter
+    bc_yaml="up: ['${book}']"
+  elif [ ${chapter} -eq ${maxchapter} ]; then
+    # If this is the last chapter of the book
+    bc_yaml="previous: ['${prev_file}']\nup: ['${book}']"
+  elif [ ${chapter} -eq 1 ]; then
+    # If this is the first chapter of the book
+    bc_yaml="up: ['${book}']\nnext: ['${next_file}']"
+  else
+    # Navigation for everything else
+    bc_yaml="up: ['${book}']\nprevious: ['${prev_file}']\nnext: ['${next_file}']"
+  fi
+  fi
+
+# Printing YAML
+  if [${aliases} -eq "true" && ${breadcrumbs_yaml} -eq "false"]; then
+    yaml="${yaml_start}${aliases}${yaml_end}"
+  elif [${aliases} -eq "true" && ${breadcrumbs_yaml} -eq "true"]; then
+    yaml="${yaml_start}${aliases}\n${bc_yaml}${yaml_end}"
+    elif [${aliases} -eq "false" && ${breadcrumbs_yaml} -eq "true"]; then
+    yaml="${yaml_start}${bc_yaml}${yaml_end}"
   fi
   
 
+  export="${yaml}${export}"
   # Export
   echo -e $export >> "$filename.md"
 
