@@ -140,13 +140,13 @@ filename=${export_prefix}$chapter # Setting the filename
     navigation="[[${book}]]"
   elif [[ $chapter = $maxchapter ]]; then
     # If this is the last chapter of the book
-    navigation="[[${prev_file}|← ${book} ${prev_chapter}]] | [[${book}]]"
+    navigation="[← ${book} ${prev_chapter}]([[${prev_file}]]) | [[${book}]]"
   elif [[ ${chapter} = 1 ]] ; then
     # If this is the first chapter of the book
-    navigation="[[${book}]] | [[${next_file}|${book} ${next_chapter} →]]"
+    navigation="[[${book}]] | [${book} ${next_chapter} →]([[${next_file}]])"
   else
     # Navigation for everything else
-    navigation="[[${prev_file}|← ${book} ${prev_chapter}]] | [[${book}]] | [[${next_file}|${book} ${next_chapter} →]]"
+    navigation="[← ${book} ${prev_chapter}]([[${prev_file}]]) | [[${book}]] | [[${book}]] | [${book} ${next_chapter} →]([[${next_file}]])"
   fi
   fi
 
