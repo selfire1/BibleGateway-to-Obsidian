@@ -194,7 +194,7 @@ filename=${export_prefix}$chapter # Setting the filename
 # YAML
 yaml_start=""
 yaml_end=""
-alias="Aliases:: [${book} ${chapter}]" # Add other aliases or 'Tags:' here if desired. Make sure to follow proper YAML format.
+alias="alias:: ${book} ${chapter}" # Add other aliases or 'Tags:' here if desired. Make sure to follow proper YAML format.
 
   # Navigation with INLINE BREADCRUMBS ENABLED
   if [[ $breadcrumbs_yaml = "true" ]] ; then
