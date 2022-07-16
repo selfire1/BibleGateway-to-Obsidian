@@ -16,7 +16,7 @@ This fork fixes some problems where some command-line options weren't being foll
 
 It also modifies the navigation to be useful with logseq (which uses typical markdown for links like `[the text]([[the-linked-to-page]])` with the first part being what is seen and the second part being the link itself).
 
-Any patches or contributions I have made in this fork are under the MIT license until such a time as jocshua adds a license to his original.
+Any patches or contributions I have made in this fork are under the MIT license until such a time as jocshua (selfire1) adds a license to his original.
 
 ## About
 This script adapts [jgclark's BibleGateway-to-Markdown](https://github.com/jgclark/BibleGateway-to-Markdown) script to export for use in [Obsidian](https://obsidian.md/). It accompanies a [Bible Study in Obsidian Kit](https://forum.obsidian.md/t/bible-study-in-obsidian-kit-including-the-bible-in-markdown/12503?u=selfire) that gets you hands-on with using Scripture in your personal notes.
