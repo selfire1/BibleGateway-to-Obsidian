@@ -41,7 +41,7 @@ Follow the instructions to download and set up [jgclark's BibleGateway-to-Markdo
 
 ## Usage
 ### 1. Install scripts
-Place both scripts (`bg2md.rb` and `bg2obs.sh`) in the same directory, open your terminal application, and navigate to that directory with commands like the following:
+Place both scripts (`bg2md.rb` and `bg2ls.sh`) in the same directory, open your terminal application, and navigate to that directory with commands like the following:
 
 * `pwd` Show your current directory
 * `ls` List all contents in the current directory
@@ -49,11 +49,11 @@ Place both scripts (`bg2md.rb` and `bg2obs.sh`) in the same directory, open your
 * `cd ..` Brings you 'up' one directory
 
 ### 2. Run the script
-Once you have navigated to the directory containing both scripts, run `bash bg2obs.sh`. This will run the bash script.
+Once you have navigated to the directory containing both scripts, run `bash bg2ls.sh`. This will run the bash script.
 
 `NOTE`: In this directory, a folder called `Scripture` with subfolders like `Genesis`, `Exodus` and so on will be created.
 
-Several options are available via command-line switches. Type `bash bg2obs.sh -h` at any time to display them.
+Several options are available via command-line switches. Type `bash bg2ls.sh -h` at any time to display them.
 
 #### Script option summary
 | Option | Description |
@@ -70,10 +70,10 @@ Several options are available via command-line switches. Type `bash bg2obs.sh -h
 #### Example usage
 | Command | Description |
 | ------- | ----------- | 
-|`bash bg2obs.sh -i -v NET` | Download a copy of the NET Bible with no other options.|
-|`bash bg2obs.sh -b` | Download a copy of the WEB Bible (default) with Jesus' words in bold. |
-|`bash bg2obs.sh -y` | Download a copy of the WEB Bible (default) with breadcrumbs navigation in the frontmatter. |
-|`bash bg2obs.sh -v NET -beacyi` | Download a copy of the NET Bible with all options enabled.|
+|`bash bg2ls.sh -i -v NET` | Download a copy of the NET Bible with no other options.|
+|`bash bg2ls.sh -b` | Download a copy of the WEB Bible (default) with Jesus' words in bold. |
+|`bash bg2ls.sh -y` | Download a copy of the WEB Bible (default) with breadcrumbs navigation in the frontmatter. |
+|`bash bg2ls.sh -v NET -beacyi` | Download a copy of the NET Bible with all options enabled.|
 
 ### 3. Format the text in a text editor
 
