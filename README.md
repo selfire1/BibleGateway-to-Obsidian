@@ -11,6 +11,10 @@ For example, for the ESV from https://www.esv.org/resources/esv-global-study-bib
 The NET translation, however has very generous copyright rules: https://netbible.com/copyright/. It appears to be permissible to use for personal study.
 
 This is not affiliated to, or approved by, BibleGateway.com. In my understanding it fits into the [conditions of usage](https://support.biblegateway.com/hc/en-us/articles/360001398808-How-do-I-get-permission-to-use-or-reprint-Bible-content-from-Bible-Gateway-?), but I make no guarantee regarding the usage of the script, it is at your own discretion.
+## Changes in this fork
+This fork fixes some problems where some command-line options weren't being followed, and a problem where newlines would get stripped out of the final file.
+
+It also modifies the navigation to be useful with logseq (which uses typical markdown for links like `[the text]([[the-linked-to-page]])` with the first part being what is seen and the second part being the link itself).
 ## About
 This script adapts [jgclark's BibleGateway-to-Markdown](https://github.com/jgclark/BibleGateway-to-Markdown) script to export for use in [Obsidian](https://obsidian.md/). It accompanies a [Bible Study in Obsidian Kit](https://forum.obsidian.md/t/bible-study-in-obsidian-kit-including-the-bible-in-markdown/12503?u=selfire) that gets you hands-on with using Scripture in your personal notes.
 
