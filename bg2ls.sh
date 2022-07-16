@@ -22,7 +22,7 @@ usage()
 	echo "  -v version   Specify the translation to download (default = WEB)"
 	echo "  -b    Set words of Jesus in bold"
 	echo "  -e    Include editorial headers"
-	echo "  -a    Create an alias in the YAML front matter for each chapter title"
+	echo "  -a    Create an alias in for each chapter title"
 	echo "  -i    Show download information (i.e. verbose mode)"
 	echo "  -c    Include inline navigation for the breadcrumbs plugin (e.g. 'up', 'next','previous')"
 	echo "  -y    Print navigation for the breadcrumbs plugin (e.g. 'up', 'next','previous') in the frontmatter (YAML)"
@@ -36,7 +36,7 @@ usage()
 translation='WEB'    # Which translation to use
 boldwords="false"    # Set words of Jesus in bold
 headers="false"      # Include editorial headers
-aliases="false"      # Create an alias in the YAML front matter for each chapter title
+aliases="false"      # Create an alias for each chapter title
 verbose="false"      # Show download progress for each chapter
 breadcrumbs_inline="false"      # Print breadcrumbs in the file
 breadcrumbs_yaml="false"      # Print breadcrumbs in the YAML
@@ -188,13 +188,13 @@ filename=${export_prefix}$chapter # Setting the filename
   if [[ $breadcrumbs_yaml = "true" ]]; then
   export="${title}\n***\n\n$text"
   else
-  export="${title}\n\n$navigation\n***\n\n$text\n\n***\n$navigation"
+  export="${title}\n\n$navigation\n\n$text\n\n***\n$navigation"
   fi
 
 # YAML
-yaml_start="---\n"
-yaml_end="\n---\n"
-alias="Aliases: [${book} ${chapter}]" # Add other aliases or 'Tags:' here if desired. Make sure to follow proper YAML format.
+yaml_start=""
+yaml_end=""
+alias="Aliases:: [${book} ${chapter}]" # Add other aliases or 'Tags:' here if desired. Make sure to follow proper YAML format.
 
   # Navigation with INLINE BREADCRUMBS ENABLED
   if [[ $breadcrumbs_yaml = "true" ]] ; then
@@ -216,7 +216,7 @@ alias="Aliases: [${book} ${chapter}]" # Add other aliases or 'Tags:' here if des
 
 # Printing YAML
   if [ ${aliases} == "true" ] && [ ${breadcrumbs_yaml} == "false" ]; then
-    yaml="${yaml_start}${alias}${yaml_end}"
+    yaml="${alias}"
   elif [ ${aliases} == "true" ] && [ ${breadcrumbs_yaml} == "true" ]; then
     yaml="${yaml_start}${alias}\n${bc_yaml}${yaml_end}"
     elif [ ${aliases} == "false" ] && [ ${breadcrumbs_yaml} == "true" ]; then
