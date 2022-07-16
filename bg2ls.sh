@@ -1,7 +1,7 @@
 #!/bin/bash
 #----------------------------------------------------------------------------------
 # This script runs Jonathan clark's bg2md.rb ruby script and formats the output
-# to be useful in Obsidian. Find the script here: https://github.com/jgclark/BibleGateway-to-Markdown
+# to be useful in Logseq. Find the script here: https://github.com/jgclark/BibleGateway-to-Markdown
 #
 # It needs to be run in the same directory as the 'bg2md.rb' script and will output
 # one .md file for each chapter, organising them in folders corresponding to the book.
@@ -268,5 +268,5 @@ find . -name "*.md" -print0 | xargs -0 perl -pi -e 's/######\s([0-9]\s|[0-9][0-9
 find . -name "*.md" -print0 | xargs -0 perl -pi -e 's/\<crossref intro.*crossref\>//g'
 
 if [[ $verbose = "true" ]]; then
-echo "Download complete. Markdown files ready for Obsidian import."
+echo "Download complete. Markdown files ready for Logseq import."
 fi
