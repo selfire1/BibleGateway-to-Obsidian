@@ -146,7 +146,7 @@ filename=${export_prefix}$chapter # Setting the filename
     navigation="[[${book}]] | [${book} ${next_chapter} →]([[${next_file}]])"
   else
     # Navigation for everything else
-    navigation="[← ${book} ${prev_chapter}]([[${prev_file}]]) | [[${book}]] | [[${book}]] | [${book} ${next_chapter} →]([[${next_file}]])"
+    navigation="[← ${book} ${prev_chapter}]([[${prev_file}]]) | [[${book}]] | [${book} ${next_chapter} →]([[${next_file}]])"
   fi
   fi
 
