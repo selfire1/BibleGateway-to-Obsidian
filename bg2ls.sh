@@ -233,7 +233,7 @@ alias="Aliases: [${book} ${chapter}]" # Add other aliases or 'Tags:' here if des
   folder_name="${book}" # Setting the folder name
 
   # Creating a folder for the book of the Bible if it doesn't exist, otherwise moving new file into existing folder
-  mkdir -p "./${biblename} (${translation})/${folder_name}"; mv "${filename}".md "./${biblename} (${translation})/${folder_name}"
+  mkdir -p "./${biblename} (${translation})"; mv "${filename}".md "./${biblename} (${translation})"
 
 
 done # End of the book exporting loop
