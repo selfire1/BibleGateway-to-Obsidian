@@ -1,4 +1,4 @@
-# BibleGateway-to-Obsidian
+# BibleGateway-to-Logseq
 ## ⚠️ Disclaimers
 By default, the version is set to the [WEB Bible](https://worldenglish.bible/). You can change the version but **must honour the copyright standards** of different translations of the Bible (See for example [BibleGateway's overview](https://www.biblegateway.com/versions/)).
 
@@ -15,6 +15,9 @@ This is not affiliated to, or approved by, BibleGateway.com. In my understanding
 This fork fixes some problems where some command-line options weren't being followed, and a problem where newlines would get stripped out of the final file.
 
 It also modifies the navigation to be useful with logseq (which uses typical markdown for links like `[the text]([[the-linked-to-page]])` with the first part being what is seen and the second part being the link itself).
+
+Any patches or contributions I have made in this fork are under the MIT license until such a time as jocshua adds a license to his original.
+
 ## About
 This script adapts [jgclark's BibleGateway-to-Markdown](https://github.com/jgclark/BibleGateway-to-Markdown) script to export for use in [Obsidian](https://obsidian.md/). It accompanies a [Bible Study in Obsidian Kit](https://forum.obsidian.md/t/bible-study-in-obsidian-kit-including-the-bible-in-markdown/12503?u=selfire) that gets you hands-on with using Scripture in your personal notes.
 
