@@ -226,7 +226,7 @@ alias="alias:: ${book} ${chapter}" # Add other aliases or 'Tags:' here if desire
 
   export="${yaml}${export}"
   # Export
-  echo -e "$export" >> "$filename.md"
+  echo -e "$export" >> "${filename}.md"
 
   # Creating a folder
 
@@ -240,8 +240,8 @@ done # End of the book exporting loop
 
   # Create an overview file for each book of the Bible:
   overview_file="links: [[${biblename}]]\n# ${book}\n\n[Start Reading →]([[${abbreviation} 1]])"
-  echo -e $overview_file >> "$book.md"
-  mv "$book.md" "./${biblename} (${translation})/${folder_name}"
+  echo -e $overview_file >> "${book}.md"
+  mv "$book.md" "./${biblename} (${translation})"
 
   # Append the bookname to "The Bible" file
   echo -e "* [[${book}]]" >> "${biblename}.md"
