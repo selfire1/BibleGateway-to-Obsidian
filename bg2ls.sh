@@ -254,6 +254,8 @@ done # End of the book exporting loop
 # since the sed utility works differently on macOS and Linux variants. The perl should
 # work consistently.
 
+mv "${biblename}".md "./${biblename} (${translation})"
+
 if [[ $verbose = "true" ]] ; then
 	echo ""
 	echo "Cleaning up the Markdown files."
