@@ -93,7 +93,7 @@ lengtharray=(50 40 27 36 34 24 21 4 31 24 22 25 29 36 10 13 10 42 150 31 12 8 66
 # Initialise the "The Bible" file for all of the books
 echo -e "# ${biblename}\n" >> "${biblename}.md"
 
-if ${verbose} -eq "true"; then
+if [[ $verbose = "true" ]] ; then
 	echo "Starting download of ${translation} Bible."
 fi
 
@@ -101,7 +101,7 @@ fi
   for ((book_counter=0; book_counter <= book_counter_max; book_counter++))
   do
 
-	if ${verbose} -eq "true"; then
+	if [[ $verbose = "true" ]] ; then
 		echo ""   # Make a new line which the '-n' flag to the echo command prevents.
 	fi
 
@@ -109,14 +109,14 @@ fi
     maxchapter=${lengtharray[$book_counter]}
     abbreviation=${abbarray[$book_counter]}
 
-	if ${verbose} -eq "true"; then
+	if [[ $verbose = "true" ]] ; then
 		echo -n "${book} "
 	fi
 
     for ((chapter=1; chapter <= maxchapter; chapter++))
     do
 
-    	if ${verbose} -eq "true"; then
+    	if [[ $verbose = "true" ]] ; then
     		echo -n "."
 		fi
 
@@ -132,16 +132,16 @@ filename=${export_prefix}$chapter # Setting the filename
   next_file=${export_prefix}$next_chapter
 
   # Navigation with INLINE BREADCRUMBS DISABLED and YAML DISABLED – write normal navigation
-  if [[ ${breadcrumbs_inline} -eq "false" && ${breadcrumbs_yaml} -eq "false" ]]; then
+  if [[ $breadcrumbs_inline = "false" && $breadcrumbs_yaml = "false" ]]; then
 
   # Formatting Navigation and omitting links that aren't necessary
-  if [[ ${maxchapter} -eq 1 ]]; then
+  if [[ $maxchapter = 1 ]]; then
     # For a book that only has one chapter
     navigation="[[${book}]]"
-  elif [ ${chapter} -eq ${maxchapter} ]; then
+  elif [[ $chapter = $maxchapter ]]; then
     # If this is the last chapter of the book
     navigation="[[${prev_file}|← ${book} ${prev_chapter}]] | [[${book}]]"
-  elif [ ${chapter} -eq 1 ]; then
+  elif [[ ${chapter} = 1 ]] ; then
     # If this is the first chapter of the book
     navigation="[[${book}]] | [[${next_file}|${book} ${next_chapter} →]]"
   else
@@ -151,15 +151,15 @@ filename=${export_prefix}$chapter # Setting the filename
   fi
 
   # Navigation with INLINE BREADCRUMBS ENABLED
-  if ${breadcrumbs_inline} -eq "true"; then
+  if [[ $breadcrumbs_inline = "true" ]] ; then
   # Formatting Navigation and omitting links that aren't necessary
-  if [ ${maxchapter} -eq 1 ]; then
+  if [[ ${maxchapter} = 1 ]] ; then
     # For a book that only has one chapter
     navigation="(up:: [[${book}]])"
-  elif [ ${chapter} -eq ${maxchapter} ]; then
+  elif [[ $chapter = $maxchapter ]] ; then
     # If this is the last chapter of the book
     navigation="(previous:: [[${prev_file}|← ${book} ${prev_chapter}]]) | (up:: [[${book}]])"
-  elif [ ${chapter} -eq 1 ]; then
+  elif [[ $chapter = 1 ]] ; then
     # If this is the first chapter of the book
     navigation="(up:: [[${book}]]) | (next:: [[${next_file}|${book} ${next_chapter} →]])"
   else
@@ -168,11 +168,11 @@ filename=${export_prefix}$chapter # Setting the filename
   fi
   fi
 
-  if ${boldwords} -eq "true" && ${headers} -eq "false"; then
+  if [[ $boldwords = "true" && $headers = "false" ]] ; then
     text=$(ruby bg2md.rb -e -c -b -f -l -r -v "${translation}" "${book} ${chapter}") # This calls the 'bg2md_mod' script
-  elif ${boldwords} -eq "true" && ${headers} -eq "true"; then
+  elif [[ $boldwords = "true" && $headers = "true" ]] ; then
     text=$(ruby bg2md.rb -c -b -f -l -r -v "${translation}" "${book} ${chapter}") # This calls the 'bg2md_mod' script
-  elif ${boldwords} -eq "false" && ${headers} -eq "true"; then
+  elif [[ $boldwords = "false" && $headers = "true" ]] ; then
     text=$(ruby bg2md.rb -e -c -f -l -r -v "${translation}" "${book} ${chapter}") # This calls the 'bg2md_mod' script
   else
     text=$(ruby bg2md.rb -e -c -f -l -r -v "${translation}" "${book} ${chapter}") # This calls the 'bg2md_mod' script
@@ -185,7 +185,7 @@ filename=${export_prefix}$chapter # Setting the filename
   title="# ${book} ${chapter}"
 
   # Navigation format
-  if [[ ${breadcrumbs_yaml} -eq "true" ]]; then
+  if [[ $breadcrumbs_yaml = "true" ]]; then
   export="${title}\n***\n\n$text"
   else
   export="${title}\n\n$navigation\n***\n\n$text\n\n***\n$navigation"
@@ -197,15 +197,15 @@ yaml_end="\n---\n"
 alias="Aliases: [${book} ${chapter}]" # Add other aliases or 'Tags:' here if desired. Make sure to follow proper YAML format.
 
   # Navigation with INLINE BREADCRUMBS ENABLED
-  if ${breadcrumbs_yaml} -eq "true"; then
+  if [[ $breadcrumbs_yaml = "true" ]] ; then
   # Formatting Navigation and omitting links that aren't necessary
-  if [ ${maxchapter} -eq 1 ]; then
+  if [[ $maxchapter = 1 ]] ; then
     # For a book that only has one chapter
     bc_yaml="up: ['${book}']"
-  elif [ ${chapter} -eq ${maxchapter} ]; then
+  elif [[ $chapter = $maxchapter ]] ; then
     # If this is the last chapter of the book
     bc_yaml="previous: ['${prev_file}']\nup: ['${book}']"
-  elif [ ${chapter} -eq 1 ]; then
+  elif [[ $chapter = 1 ]] ; then
     # If this is the first chapter of the book
     bc_yaml="up: ['${book}']\nnext: ['${next_file}']"
   else
@@ -254,7 +254,7 @@ done # End of the book exporting loop
 # since the sed utility works differently on macOS and Linux variants. The perl should
 # work consistently.
 
-if ${verbose} -eq "true"; then
+if [[ $verbose = "true" ]] ; then
 	echo ""
 	echo "Cleaning up the Markdown files."
 fi
@@ -267,6 +267,6 @@ find . -name "*.md" -print0 | xargs -0 perl -pi -e 's/######\s([0-9]\s|[0-9][0-9
 # Delete crossreferences
 find . -name "*.md" -print0 | xargs -0 perl -pi -e 's/\<crossref intro.*crossref\>//g'
 
-if ${verbose} -eq "true"; then
+if [[ $verbose = "true" ]]; then
 echo "Download complete. Markdown files ready for Obsidian import."
 fi
