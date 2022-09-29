@@ -179,7 +179,7 @@ filename=${export_prefix}$chapter # Setting the filename
   fi
 
 
-  text=$(echo $text | sed 's/^(.*?)v1/v1/') # Deleting unwanted headers
+  text=$(echo "$text" | sed 's/^(.*?)v1/v1/') # Deleting unwanted headers
 
   # Formatting the title for markdown
   title="# ${book} ${chapter}"
@@ -226,7 +226,7 @@ alias="Aliases: [${book} ${chapter}]" # Add other aliases or 'Tags:' here if des
 
   export="${yaml}${export}"
   # Export
-  echo -e $export >> "$filename.md"
+  echo -e "$export" >> "$filename.md"
 
   # Creating a folder
 
@@ -239,7 +239,7 @@ alias="Aliases: [${book} ${chapter}]" # Add other aliases or 'Tags:' here if des
 done # End of the book exporting loop
 
   # Create an overview file for each book of the Bible:
-  overview_file="links: [[${biblename}]]\n# ${book}\n\n[[${abbreviation} 1|Start Reading →]]"
+  overview_file="links: [[${biblename}]]\n# ${book}\n\n[Start Reading →]([[${abbreviation} 1]])"
   echo -e $overview_file >> "$book.md"
   mv "$book.md" "./${biblename} (${translation})/${folder_name}"
 
