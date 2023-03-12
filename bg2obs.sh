@@ -38,6 +38,7 @@ boldwords="false"    # Set words of Jesus in bold
 headers="false"      # Include editorial headers
 aliases="false"      # Create an alias in the YAML front matter for each chapter title
 verbose="false"      # Show download progress for each chapter
+newline="false"			# Start chapters and verses on a new line
 breadcrumbs_inline="false"      # Print breadcrumbs in the file
 breadcrumbs_yaml="false"      # Print breadcrumbs in the YAML
 
