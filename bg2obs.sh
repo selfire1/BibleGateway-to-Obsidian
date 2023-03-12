@@ -42,7 +42,7 @@ breadcrumbs_inline="false"      # Print breadcrumbs in the file
 breadcrumbs_yaml="false"      # Print breadcrumbs in the YAML
 
 # Process command line args
-while getopts 'v:beaicy?h' c
+while getopts 'v:beaincy?h' c
 do
 	case $c in
 		v) translation=$OPTARG ;;
@@ -50,6 +50,7 @@ do
 		e) headers="true" ;;
 		a) aliases="true" ;;
 		i) verbose="true" ;;
+		n) newline="true" ;;
 		c) breadcrumbs_inline="true" ;;
 		y) breadcrumbs_yaml="true" ;;
 		h|?) usage ;;
