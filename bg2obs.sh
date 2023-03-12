@@ -38,11 +38,12 @@ boldwords="false"    # Set words of Jesus in bold
 headers="false"      # Include editorial headers
 aliases="false"      # Create an alias in the YAML front matter for each chapter title
 verbose="false"      # Show download progress for each chapter
+newline="false"			# Start chapters and verses on a new line
 breadcrumbs_inline="false"      # Print breadcrumbs in the file
 breadcrumbs_yaml="false"      # Print breadcrumbs in the YAML
 
 # Process command line args
-while getopts 'v:beaicy?h' c
+while getopts 'v:beaincy?h' c
 do
 	case $c in
 		v) translation=$OPTARG ;;
@@ -50,9 +51,10 @@ do
 		e) headers="true" ;;
 		a) aliases="true" ;;
 		i) verbose="true" ;;
+		n) newline="true" ;;
 		c) breadcrumbs_inline="true" ;;
 		y) breadcrumbs_yaml="true" ;;
-		h|?) usage ;; 
+		h|?) usage ;;
 	esac
 done
 
@@ -168,14 +170,18 @@ filename=${export_prefix}$chapter # Setting the filename
   fi
   fi
 
-  if [[ $boldwords = "true" && $headers = "false" ]] ; then
-    text=$(ruby bg2md.rb -e -c -b -f -l -r -v "${translation}" "${book} ${chapter}") # This calls the 'bg2md_mod' script
-  elif [[ $boldwords = "true" && $headers = "true" ]] ; then
-    text=$(ruby bg2md.rb -c -b -f -l -r -v "${translation}" "${book} ${chapter}") # This calls the 'bg2md_mod' script
-  elif [[ $boldwords = "false" && $headers = "true" ]] ; then
-    text=$(ruby bg2md.rb -e -c -f -l -r -v "${translation}" "${book} ${chapter}") # This calls the 'bg2md_mod' script
-  else
-    text=$(ruby bg2md.rb -e -c -f -l -r -v "${translation}" "${book} ${chapter}") # This calls the 'bg2md_mod' script
+	if [[ $boldwords = "true" && $headers = "false" && $newline = "false" ]] ; then
+    text=$(ruby bg2md.rb -e -c -b -f -r -v "${translation}" "${book} ${chapter}") # This calls the 'bg2md_mod' script
+  elif [[ $boldwords = "true" && $headers = "true" && $newline = "false" ]] ; then
+    text=$(ruby bg2md.rb -c -b -f -r -v "${translation}" "${book} ${chapter}") # This calls the 'bg2md_mod' script
+	elif [[ $boldwords = "false" && $headers = "true" && $newline = "false" ]] ; then
+    text=$(ruby bg2md.rb -e -c -f -r -v "${translation}" "${book} ${chapter}") # This calls the 'bg2md_mod' script
+	elif [[ $boldwords = "true" && $headers = "false" && $newline = "true" ]] ; then
+		text=$(ruby bg2md.rb -e -c -b -f -l -r -v "${translation}" "${book} ${chapter}") # This calls the 'bg2md_mod' script
+	elif [[ $boldwords = "true" && $headers = "true" && $newline = "true" ]] ; then
+		text=$(ruby bg2md.rb -c -b -f -l -r -v "${translation}" "${book} ${chapter}") # This calls the 'bg2md_mod' script
+	elif [[ $boldwords = "false" && $headers = "true" && $newline = "true" ]] ; then
+		text=$(ruby bg2md.rb -e -c -f -l -r -v "${translation}" "${book} ${chapter}") # This calls the 'bg2md_mod' script
   fi
 
 
@@ -222,7 +228,7 @@ alias="Aliases: [${book} ${chapter}]" # Add other aliases or 'Tags:' here if des
     elif [ ${aliases} == "false" ] && [ ${breadcrumbs_yaml} == "true" ]; then
     yaml="${yaml_start}${bc_yaml}${yaml_end}"
   fi
-  
+
 
   export="${yaml}${export}"
   # Export
