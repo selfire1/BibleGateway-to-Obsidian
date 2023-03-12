@@ -59,6 +59,7 @@ Several options are available via command-line switches. Type `bash bg2obs.sh -h
 | `-e` | Include editorial headers (default is Off)|
 | `-a` | Create an alias in the YAML front matter with a more user-friendly chapter title  (e.g., "Genesis 1") (default is Off)|
 | `-i` | Show progress information while the script is running (i.e. "verbose" mode) (default is Off)|
+| `-n` | Start chapters and verses on a new line that starts with an H5 or H6 heading (default is Off)|
 | `-c` | Include *inline* navigation for the [breadcrumbs](https://github.com/SkepticMystic/breadcrumbs) plugin (e.g. 'up', 'next','previous') (default is Off)|
 | `-y` | Include navigation for the breadcrumbs plugin in the *frontmatter* (YAML) (default is Off)|
 | `-h` | Display help |
