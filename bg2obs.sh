@@ -90,8 +90,8 @@ chapter_array=(50 40 27 36 34 24 21 4 31 24 22 25 29 36 10 13 10 42 150 31 12 8 
 # Initialise the name of the Bible folder
 bible_folder="$bible_name ($ARG_VERSION)"
 
-# Initialise the "The Bible" file for all of the books
-echo -e "# $bible_name\n" > "$bible_name.md"
+# Initialise the main index file
+echo -e "# $bible_folder" > "$bible_name.md"
 
 if [[ $ARG_VERBOSE == "true" ]]; then
   echo -n "Starting download of $ARG_VERSION Bible."
@@ -112,6 +112,9 @@ for ((book_index=0; book_index<66; book_index++)); do
     echo -n "$book "
   fi
 
+  # Add book to main index file
+  echo -en "\n* $book:" >> "$bible_name.md"
+
   # Loop through each chapter of this book
   for ((chapter=1; chapter<=last_chapter; chapter++)); do
 
@@ -123,6 +126,9 @@ for ((book_index=0; book_index<66; book_index++)); do
     this_file="$abbreviation $chapter"
     prev_file="$abbreviation $prev_chapter"
     next_file="$abbreviation $next_chapter"
+
+    # Add this chapter to the main index file
+    echo -en " [[$this_file|$chapter]]" >> "$bible_name.md"
 
     # Set the appropriate flags for the 'bg2md_mod' script
     bg2md_flags="-c -f -l -r"
@@ -210,9 +216,6 @@ for ((book_index=0; book_index<66; book_index++)); do
   overview_file="links: [[$bible_name]]\n# $book\n\n[[$abbreviation 1|Start Reading →]]"
   echo -e $overview_file > "$book.md"
   mv "$book.md" "./$bible_folder/$book"
-
-  # Append the bookname to the main Bible index file
-  echo -e "* [[$book]]" >> "$bible_name.md"
 
 done # End of book loop
 
