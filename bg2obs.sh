@@ -20,56 +20,51 @@
 ############################################################################################
 # FOR TRANSLATORS
 ############################################################################################
-# Translators: translate the following
-#  *NOTE: Any names that contain a space or start with a number must be wrapped in quotes
-
-# The name of the Bible
-bible_name="The Bible"
-
-# Full names of the books of the Bible
-declare -a book_array
-book_array=(Genesis Exodus Leviticus Numbers Deuteronomy Joshua Judges Ruth "1 Samuel" "2 Samuel" "1 Kings" "2 Kings" "1 Chronicles" "2 Chronicles" Ezra Nehemiah Esther Job Psalms Proverbs Ecclesiastes "Song of Solomon" Isaiah Jeremiah Lamentations Ezekiel Daniel Hosea Joel Amos Obadiah Jonah Micah Nahum Habakkuk Zephaniah Haggai Zechariah Malachi Matthew Mark Luke John Acts
-Romans "1 Corinthians" "2 Corinthians" Galatians Ephesians Philippians Colossians "1 Thessalonians" "2 Thessalonians" "1 Timothy" "2 Timothy" Titus Philemon Hebrews James "1 Peter" "2 Peter" "1 John" "2 John" "3 John" Jude Revelation)
-
-# Short names of the books of the Bible
-declare -a abb_array
-abb_array=(Gen Exod Lev Num Deut Josh Judg Ruth "1 Sam" "2 Sam" "1 Kings" "2 Kings" "1 Chron" "2 Chron" Ezr Neh Esth Job Ps Prov Eccles Song Isa Jer Lam Ezek Dan Hos Joel Am Obad Jonah Micah Nah Hab Zeph Hag Zech Mal Matt Mark Luke John Acts Rom "1 Cor" "2 Cor" Gal Ephes Phil Col "1 Thess" "2 Thess" "1 Tim" "2 Tim" Titus Philem Heb James "1 Pet" "2 Pet" "1 John" "2 John" "3 John" Jude Rev)
+# Copy the ./locales/en folder into the same folder, and rename it with the
+# appropriate language code. Then translate each of the text files inside the
+# new folder. Do NOT rename the text files, or your translations will break.
 ############################################################################################
 
 
 show_help()
 {
-	echo "Usage: $0 [-beaicyh] [-v version]"
+	echo "Usage: $0 [-sbeaicyh] [-v version]"
 	echo "  -v version   Specify the Bible version to download (default = WEB)"
+	echo "  -s    If available, use shorter book abbreviations"
 	echo "  -b    Set words of Jesus in bold"
 	echo "  -e    Include editorial headers"
 	echo "  -a    Create an alias in the YAML front matter for each chapter title"
 	echo "  -i    Show download information (i.e. verbose mode)"
 	echo "  -c    Include inline navigation for the breadcrumbs plugin (e.g. 'up', 'next','previous')"
 	echo "  -y    Print navigation for the breadcrumbs plugin (e.g. 'up', 'next','previous') in the frontmatter (YAML)"
+	echo "  -l    Which language to use for file names, links, and titles"
 	echo "  -h    Display help"
 	exit 1
 }
 
 # Clear version variable if it exists and set defaults for others
-ARG_VERSION='WEB'        # Which translation to use
+ARG_VERSION="WEB"        # Which version to use from BibleGateway.com
+ARG_ABBR_SHORT="false"   # Use shorter book abbreviations
 ARG_BOLD_WORDS="false"   # Set words of Jesus in bold
 ARG_HEADERS="false"      # Include editorial headers
 ARG_ALIASES="false"      # Create an alias in the YAML front matter for each chapter title
 ARG_VERBOSE="false"      # Show download progress for each chapter
 ARG_BC_INLINE="false"    # Print breadcrumbs in the file
 ARG_BC_YAML="false"      # Print breadcrumbs in the YAML
+ARG_LANGUAGE="en"        # Which language translation to for file names, links, and titles
 
 # Process command line args
-while getopts 'v:beaicy?h' c; do
+while getopts 'v:sbeaicyl:?h' c; do
   case $c in
     v) ARG_VERSION=$OPTARG ;;
+    s) ARG_ABBR_SHORT="true" ;;
     b) ARG_BOLD_WORDS="true" ;;
     e) ARG_HEADERS="true" ;;
     a) ARG_ALIASES="true" ;;
     i) ARG_VERBOSE="true" ;;
     c) ARG_BC_INLINE="true" ;;
 		y) ARG_BC_YAML="true" ;;
+		l) ARG_LANGUAGE=$OPTARG ;;
     h|?) show_help ;;
   esac
 done
@@ -82,6 +77,37 @@ select yn in "Yes" "No"; do
     No ) exit;;
   esac
 done
+
+# Set translation folder
+translation_folder="./locales/$ARG_LANGUAGE"
+
+# TRANSLATION: The title of the Bible
+bible_name=$(cat "$translation_folder/name.txt")
+if [ "$?" -ne "0" ]; then
+  echo "Language not found!"
+  exit 1
+fi
+
+# TRANSLATION: Full names of the books of the Bible
+declare -a book_array
+i=0
+while read line; do
+  book_array[i]=$line
+  ((++i))
+done <"$translation_folder/books.txt"
+
+# TRANSLATION: Abbreviated book names
+declare -a abbr_array
+if [[ $ARG_ABBR_SHORT == "true" ]]; then
+  ABBR_FILE="booksAbbrShort.txt"
+else
+  ABBR_FILE="booksAbbr.txt"
+fi
+i=0
+while read line; do
+  abbr_array[i]=$line
+  ((++i))
+done <"$translation_folder/$ABBR_FILE"
 
 # Book chapter list
 declare -a chapter_array
@@ -158,7 +184,7 @@ for ((book_index=0; book_index<66; book_index++)); do
 
   book=${book_array[$book_index]}
   last_chapter=${chapter_array[$book_index]}
-  abbreviation=${abb_array[$book_index]}
+  abbreviation=${abbr_array[$book_index]}
 
   if [[ $ARG_VERBOSE == "true" ]]; then
     show_progress_bar "$book" 0 $last_chapter "true"
