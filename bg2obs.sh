@@ -87,6 +87,62 @@ done
 declare -a chapter_array
 chapter_array=(50 40 27 36 34 24 21 4 31 24 22 25 29 36 10 13 10 42 150 31 12 8 66 52 5 48 12 14 3 9 1 4 7 3 3 3 2 14 4 28 16 24 21 28 16 16 13 6 6 4 4 5 3 6 4 3 1 13 5 5 3 5 1 1 1 22)
 
+# Find the longest book title (this might change in different languages)
+# this will be used for verbose progress bar display
+title_max=0
+if [[ $ARG_VERBOSE == "true" ]]; then
+  for ((i=0; i<66; i++)); do
+    if [[ ${#book_array[i]} -gt $title_max ]]; then
+      title_max=${#book_array[i]}
+    fi
+  done
+fi
+
+show_progress_bar()
+{
+  # Calculate completion percentage
+  ((percentage=($2*100)/$3))
+
+  # Create the progress bar
+  ((bar_width=$percentage/5))
+  local bar=""
+  while [[ ${#bar} -lt $bar_width ]]; do
+    bar="${bar}▩"
+  done
+  while [[ ${#bar} -lt 20 ]]; do
+    bar="$bar "
+  done
+
+  # Normalize book name length
+  local title="$1"
+  while [[ ${#title} -lt $title_max ]]; do
+    title=" $title"
+  done
+
+  # Normalize chapters complete number
+  local completed="$2"
+  if [[ ${#completed} -lt 2 ]]; then
+    completed="0$completed"
+  fi
+
+  # Normalize chapters total number
+  local total="$3"
+  if [[ ${#total} -lt 2 ]]; then
+    total="0$total"
+  fi
+
+  # Create the progress bar display
+  progress_bar="$title —— Chapter $completed of $total —— |$bar| $percentage%"
+
+  # start a new line
+  if [[ $4 == "true" ]]; then
+    echo -en "\n$progress_bar"
+  # else the next progress bar will overwrite this one
+  else
+    echo -en "\r$progress_bar"
+  fi
+}
+
 # Initialise the name of the Bible folder
 bible_folder="$bible_name ($ARG_VERSION)"
 
@@ -100,16 +156,12 @@ fi
 # Loop through the books of the Bible
 for ((book_index=0; book_index<66; book_index++)); do
 
-  if [[ $ARG_VERBOSE == "true" ]]; then
-    echo ""
-  fi
-
   book=${book_array[$book_index]}
   last_chapter=${chapter_array[$book_index]}
   abbreviation=${abb_array[$book_index]}
 
   if [[ $ARG_VERBOSE == "true" ]]; then
-    echo -n "$book "
+    show_progress_bar "$book" 0 $last_chapter "true"
   fi
 
   # Add book to main index file
@@ -207,7 +259,7 @@ for ((book_index=0; book_index<66; book_index++)); do
 
     # Update progress in terminal
     if [[ $ARG_VERBOSE == "true" ]]; then
-      echo -n "."
+      show_progress_bar "$book" $chapter $last_chapter "false"
     fi
 
   done # End of chapter loop
