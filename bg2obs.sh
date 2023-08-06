@@ -20,56 +20,51 @@
 ############################################################################################
 # FOR TRANSLATORS
 ############################################################################################
-# Translators: translate the following
-#  *NOTE: Any names that contain a space or start with a number must be wrapped in quotes
-
-# The name of the Bible
-bible_name="The Bible"
-
-# Full names of the books of the Bible
-declare -a book_array
-book_array=(Genesis Exodus Leviticus Numbers Deuteronomy Joshua Judges Ruth "1 Samuel" "2 Samuel" "1 Kings" "2 Kings" "1 Chronicles" "2 Chronicles" Ezra Nehemiah Esther Job Psalms Proverbs Ecclesiastes "Song of Solomon" Isaiah Jeremiah Lamentations Ezekiel Daniel Hosea Joel Amos Obadiah Jonah Micah Nahum Habakkuk Zephaniah Haggai Zechariah Malachi Matthew Mark Luke John Acts
-Romans "1 Corinthians" "2 Corinthians" Galatians Ephesians Philippians Colossians "1 Thessalonians" "2 Thessalonians" "1 Timothy" "2 Timothy" Titus Philemon Hebrews James "1 Peter" "2 Peter" "1 John" "2 John" "3 John" Jude Revelation)
-
-# Short names of the books of the Bible
-declare -a abb_array
-abb_array=(Gen Exod Lev Num Deut Josh Judg Ruth "1 Sam" "2 Sam" "1 Kings" "2 Kings" "1 Chron" "2 Chron" Ezr Neh Esth Job Ps Prov Eccles Song Isa Jer Lam Ezek Dan Hos Joel Am Obad Jonah Micah Nah Hab Zeph Hag Zech Mal Matt Mark Luke John Acts Rom "1 Cor" "2 Cor" Gal Ephes Phil Col "1 Thess" "2 Thess" "1 Tim" "2 Tim" Titus Philem Heb James "1 Pet" "2 Pet" "1 John" "2 John" "3 John" Jude Rev)
+# Copy the ./locales/en folder into the same folder, and rename it with the
+# appropriate language code. Then translate each of the text files inside the
+# new folder. Do NOT rename the text files, or your translations will break.
 ############################################################################################
 
 
 show_help()
 {
-	echo "Usage: $0 [-beaicyh] [-v version]"
+	echo "Usage: $0 [-sbeaicyh] [-v version]"
 	echo "  -v version   Specify the Bible version to download (default = WEB)"
+	echo "  -s    If available, use shorter book abbreviations"
 	echo "  -b    Set words of Jesus in bold"
 	echo "  -e    Include editorial headers"
 	echo "  -a    Create an alias in the YAML front matter for each chapter title"
 	echo "  -i    Show download information (i.e. verbose mode)"
 	echo "  -c    Include inline navigation for the breadcrumbs plugin (e.g. 'up', 'next','previous')"
 	echo "  -y    Print navigation for the breadcrumbs plugin (e.g. 'up', 'next','previous') in the frontmatter (YAML)"
+	echo "  -l    Which language to use for file names, links, and titles"
 	echo "  -h    Display help"
 	exit 1
 }
 
 # Clear version variable if it exists and set defaults for others
-ARG_VERSION='WEB'        # Which translation to use
+ARG_VERSION="WEB"        # Which version to use from BibleGateway.com
+ARG_ABBR_SHORT="false"   # Use shorter book abbreviations
 ARG_BOLD_WORDS="false"   # Set words of Jesus in bold
 ARG_HEADERS="false"      # Include editorial headers
 ARG_ALIASES="false"      # Create an alias in the YAML front matter for each chapter title
 ARG_VERBOSE="false"      # Show download progress for each chapter
 ARG_BC_INLINE="false"    # Print breadcrumbs in the file
 ARG_BC_YAML="false"      # Print breadcrumbs in the YAML
+ARG_LANGUAGE="en"        # Which language translation to for file names, links, and titles
 
 # Process command line args
-while getopts 'v:beaicy?h' c; do
+while getopts 'v:sbeaicyl:?h' c; do
   case $c in
     v) ARG_VERSION=$OPTARG ;;
+    s) ARG_ABBR_SHORT="true" ;;
     b) ARG_BOLD_WORDS="true" ;;
     e) ARG_HEADERS="true" ;;
     a) ARG_ALIASES="true" ;;
     i) ARG_VERBOSE="true" ;;
     c) ARG_BC_INLINE="true" ;;
 		y) ARG_BC_YAML="true" ;;
+		l) ARG_LANGUAGE=$OPTARG ;;
     h|?) show_help ;;
   esac
 done
@@ -83,15 +78,102 @@ select yn in "Yes" "No"; do
   esac
 done
 
+# Set translation folder
+translation_folder="./locales/$ARG_LANGUAGE"
+
+# TRANSLATION: The title of the Bible
+bible_name=$(cat "$translation_folder/name.txt")
+if [ "$?" -ne "0" ]; then
+  echo "Language not found!"
+  exit 1
+fi
+
+# TRANSLATION: Full names of the books of the Bible
+declare -a book_array
+i=0
+while read line; do
+  book_array[i]=$line
+  ((++i))
+done <"$translation_folder/books.txt"
+
+# TRANSLATION: Abbreviated book names
+declare -a abbr_array
+if [[ $ARG_ABBR_SHORT == "true" ]]; then
+  ABBR_FILE="booksAbbrShort.txt"
+else
+  ABBR_FILE="booksAbbr.txt"
+fi
+i=0
+while read line; do
+  abbr_array[i]=$line
+  ((++i))
+done <"$translation_folder/$ABBR_FILE"
+
 # Book chapter list
 declare -a chapter_array
 chapter_array=(50 40 27 36 34 24 21 4 31 24 22 25 29 36 10 13 10 42 150 31 12 8 66 52 5 48 12 14 3 9 1 4 7 3 3 3 2 14 4 28 16 24 21 28 16 16 13 6 6 4 4 5 3 6 4 3 1 13 5 5 3 5 1 1 1 22)
 
+# Find the longest book title (this might change in different languages)
+# this will be used for verbose progress bar display
+title_max=0
+if [[ $ARG_VERBOSE == "true" ]]; then
+  for ((i=0; i<66; i++)); do
+    if [[ ${#book_array[i]} -gt $title_max ]]; then
+      title_max=${#book_array[i]}
+    fi
+  done
+fi
+
+show_progress_bar()
+{
+  # Calculate completion percentage
+  ((percentage=($2*100)/$3))
+
+  # Create the progress bar
+  ((bar_width=$percentage/5))
+  local bar=""
+  while [[ ${#bar} -lt $bar_width ]]; do
+    bar="${bar}▩"
+  done
+  while [[ ${#bar} -lt 20 ]]; do
+    bar="$bar "
+  done
+
+  # Normalize book name length
+  local title="$1"
+  while [[ ${#title} -lt $title_max ]]; do
+    title=" $title"
+  done
+
+  # Normalize chapters complete number
+  local completed="$2"
+  if [[ ${#completed} -lt 2 ]]; then
+    completed="0$completed"
+  fi
+
+  # Normalize chapters total number
+  local total="$3"
+  if [[ ${#total} -lt 2 ]]; then
+    total="0$total"
+  fi
+
+  # Create the progress bar display
+  progress_bar="$title —— Chapter $completed of $total —— |$bar| $percentage%"
+
+  # start a new line
+  if [[ $4 == "true" ]]; then
+    echo -en "\n$progress_bar"
+  # else the next progress bar will overwrite this one
+  else
+    echo -en "\r$progress_bar"
+  fi
+}
+
 # Initialise the name of the Bible folder
 bible_folder="$bible_name ($ARG_VERSION)"
 
-# Initialise the "The Bible" file for all of the books
-echo -e "# $bible_name\n" > "$bible_name.md"
+# Initialise the main index file
+echo -e "# $bible_folder" > "$bible_name.md"
 
 if [[ $ARG_VERBOSE == "true" ]]; then
   echo -n "Starting download of $ARG_VERSION Bible."
@@ -100,17 +182,16 @@ fi
 # Loop through the books of the Bible
 for ((book_index=0; book_index<66; book_index++)); do
 
-  if [[ $ARG_VERBOSE == "true" ]]; then
-    echo ""
-  fi
-
   book=${book_array[$book_index]}
   last_chapter=${chapter_array[$book_index]}
-  abbreviation=${abb_array[$book_index]}
+  abbreviation=${abbr_array[$book_index]}
 
   if [[ $ARG_VERBOSE == "true" ]]; then
-    echo -n "$book "
+    show_progress_bar "$book" 0 $last_chapter "true"
   fi
+
+  # Add book to main index file
+  echo -en "\n* $book:" >> "$bible_name.md"
 
   # Loop through each chapter of this book
   for ((chapter=1; chapter<=last_chapter; chapter++)); do
@@ -123,6 +204,9 @@ for ((book_index=0; book_index<66; book_index++)); do
     this_file="$abbreviation $chapter"
     prev_file="$abbreviation $prev_chapter"
     next_file="$abbreviation $next_chapter"
+
+    # Add this chapter to the main index file
+    echo -en " [[$this_file|$chapter]]" >> "$bible_name.md"
 
     # Set the appropriate flags for the 'bg2md_mod' script
     bg2md_flags="-c -f -l -r"
@@ -201,7 +285,7 @@ for ((book_index=0; book_index<66; book_index++)); do
 
     # Update progress in terminal
     if [[ $ARG_VERBOSE == "true" ]]; then
-      echo -n "."
+      show_progress_bar "$book" $chapter $last_chapter "false"
     fi
 
   done # End of chapter loop
@@ -210,9 +294,6 @@ for ((book_index=0; book_index<66; book_index++)); do
   overview_file="links: [[$bible_name]]\n# $book\n\n[[$abbreviation 1|Start Reading →]]"
   echo -e $overview_file > "$book.md"
   mv "$book.md" "./$bible_folder/$book"
-
-  # Append the bookname to the main Bible index file
-  echo -e "* [[$book]]" >> "$bible_name.md"
 
 done # End of book loop
 

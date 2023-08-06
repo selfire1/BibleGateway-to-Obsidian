@@ -1,0 +1,66 @@
+Gen
+Exod
+Lev
+Nom
+Deu
+Jos
+Jug
+Rut
+1 Sam
+2 Sam
+1 Roi
+2 Roi
+1 Chro
+2 Chro
+Ezr
+Neh
+Est
+Job
+Ps
+Prov
+Eccles
+Can
+Esa
+Jer
+Lam
+Ezek
+Dan
+Ose
+Joel
+Am
+Abd
+Jona
+Mic
+Nah
+Hab
+Zeph
+Hag
+Zech
+Mal
+Matt
+Mar
+Luc
+Jean
+Act
+Rom
+1 Cor
+2 Cor
+Gal
+Ephes
+Phil
+Col
+1 Thess
+2 Thess
+1 Tim
+2 Tim
+Tite
+Philem
+Heb
+Jacq
+1 Pi
+2 Pie
+1 Jean
+2 Jean
+3 Jean
+Jude
+Apo
