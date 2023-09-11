@@ -1,0 +1,66 @@
+Gen
+Exod
+Lev
+Num
+Deut
+Josué
+Juízes
+Rute
+1 Sam
+2 Sam
+1 Reis
+2 Reis
+1 Cro
+2 Cro
+Esdr
+Nee
+Estr
+Jó
+Slms
+Prov
+Ecl
+Cant
+Isa
+Jer
+Lam
+Ezeq
+Dan
+Ose
+Joel
+Amós
+Obad
+Jon
+Miq
+Naum
+Hab
+Sof
+Ageu
+Zac
+Mal
+Mat
+Mar
+Luc
+Jo
+Ats
+Rom
+1 Cor
+2 Cor
+Gal
+Efes
+Fil
+Col
+1 Tess
+2 Tess
+1 Tim
+2 Tim
+Tito
+File
+Hebr
+Tia
+1 Ped
+2 Ped
+1 Jo
+2 Jo
+3 Jo
+Jud
+Apo
