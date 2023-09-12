@@ -61,6 +61,7 @@ Several options are available via command-line switches. Type `bash bg2obs.sh -h
 | `-i` | Show progress information while the script is running (i.e. "verbose" mode) (default is Off)|
 | `-c` | Include *inline* navigation for the [breadcrumbs](https://github.com/SkepticMystic/breadcrumbs) plugin (e.g. 'up', 'next','previous') (default is Off)|
 | `-y` | Include navigation for the breadcrumbs plugin in the *frontmatter* (YAML) (default is Off)|
+| `-l` | Specify the locale that should be used to name the books of the bible (default is english) |
 | `-h` | Display help |
 
 #### Example usage

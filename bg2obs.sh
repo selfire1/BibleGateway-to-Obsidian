@@ -218,7 +218,7 @@ for ((book_index=0; book_index<66; book_index++)); do
     fi
 
     # Use the bg2md script to read chapter contents
-    chapter_content=$(ruby bg2md.rb $bg2md_flags -v $ARG_VERSION $book $chapter)
+    chapter_content=$(ruby bg2md.rb $bg2md_flags -v $ARG_VERSION $book$chapter)
 
     # Delete unwanted headers from chapter content
     chapter_content=$(echo $chapter_content | sed 's/^(.*?)v1/v1/')
