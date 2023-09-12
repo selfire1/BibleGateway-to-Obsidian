@@ -52,17 +52,18 @@ Once you have navigated to the directory containing both scripts, run `bash bg2o
 Several options are available via command-line switches. Type `bash bg2obs.sh -h` at any time to display them.
 
 #### Script option summary
-| Option | Description |
-| ------ | ----------- |
-| `-v [VERSION]` | Specify the version of the Bible to download (default is WEB) |
-| `-b` | Set words of Jesus in bold (default is Off)|
-| `-e` | Include editorial headers (default is Off)|
-| `-a` | Create an alias in the YAML front matter with a more user-friendly chapter title  (e.g., "Genesis 1") (default is Off)|
-| `-i` | Show progress information while the script is running (i.e. "verbose" mode) (default is Off)|
-| `-c` | Include *inline* navigation for the [breadcrumbs](https://github.com/SkepticMystic/breadcrumbs) plugin (e.g. 'up', 'next','previous') (default is Off)|
-| `-y` | Include navigation for the breadcrumbs plugin in the *frontmatter* (YAML) (default is Off)|
-| `-l` | Specify the locale that should be used to name the books of the bible (default is english) |
-| `-h` | Display help |
+
+| Option         | Description                                                                                                                                            |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `-v [VERSION]` | Specify the version of the Bible to download (default is WEB)                                                                                          |
+| `-b`           | Set words of Jesus in bold (default is Off)                                                                                                            |
+| `-e`           | Include editorial headers (default is Off)                                                                                                             |
+| `-a`           | Create an alias in the YAML front matter with a more user-friendly chapter title (e.g., "Genesis 1") (default is Off)                                  |
+| `-i`           | Show progress information while the script is running (i.e. "verbose" mode) (default is Off)                                                           |
+| `-c`           | Include _inline_ navigation for the [breadcrumbs](https://github.com/SkepticMystic/breadcrumbs) plugin (e.g. 'up', 'next','previous') (default is Off) |
+| `-y`           | Include navigation for the breadcrumbs plugin in the _frontmatter_ (YAML) (default is Off)                                                             |
+| `-l`           | Specify the locale that should be used to name the books of the Bible (default is English)                                                             |
+| `-h`           | Display help                                                                                                                                           |
 
 #### Example usage
 | Command | Description |
