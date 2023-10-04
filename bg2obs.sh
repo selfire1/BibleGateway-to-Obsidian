@@ -217,8 +217,9 @@ for ((book_index=0; book_index<66; book_index++)); do
       bg2md_flags="${bg2md_flags} -e"
     fi
 
+    book_no_spaces=$(echo "$book" | sed 's/ //g')
     # Use the bg2md script to read chapter contents
-    chapter_content=$(ruby bg2md.rb $bg2md_flags -v $ARG_VERSION $book$chapter)
+    chapter_content=$(ruby bg2md.rb $bg2md_flags -v $ARG_VERSION $book_no_spaces$chapter)
 
     # Delete unwanted headers from chapter content
     chapter_content=$(echo $chapter_content | sed 's/^(.*?)v1/v1/')
