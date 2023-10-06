@@ -60,9 +60,9 @@ Place both scripts (`bg2md.rb` and `bg2obs.sh`) in the same directory, open your
 
 ### 2. Run the script
 
-Once you have navigated to the directory containing both scripts, run `bash bg2obs.sh`. This will run the bash script.
+Once you have navigated to the directory containing both scripts, run `bash bg2obs.sh`. This will run the bash script. A folder called `Scripture` with subfolders like `Genesis`, `Exodus` and so on will be created in the current folder.
 
-`NOTE`: In this directory, a folder called `Scripture` with subfolders like `Genesis`, `Exodus` and so on will be created.
+**Note**: This script uses the clipboard to manipulate the text. You might find that copying and pasting while running the script does not work as expected.
 
 Several options are available via command-line switches. Type `bash bg2obs.sh -h` at any time to display them.
 
@@ -107,7 +107,7 @@ Below are common issues when using the script. If this still doesn't solve your 
 
 - The [Help and Support thread](https://forum.obsidian.md/t/bible-study-kit-in-obsidian-scripts-help-and-support/31069/2) for this script in the Obsidian Forums. (I am somewhat less active there, but plenty of folks are happy to help out!)
 - Create an [issue](https://github.com/selfire1/BibleGateway-to-Obsidian/issues) on GitHub. This is my preferred way to keep track of what needs fixing.
-- Also, feel free to [get in touch](https://joschuasgarden.com/Contact+me) and I will attempt to fix it!
+- Also, feel free to [get in touch](https://joschua.io/about) and I will attempt to fix it!
 
 ### Problems loading ruby/gems
 
@@ -122,6 +122,9 @@ An error like this indicates ruby or the gems aren't installed properly: `in req
 ### The first chapter of the book repeats
 
 ☑️ Use [version 1.4.3](https://github.com/jgclark/BibleGateway-to-Markdown/tree/d693e85bba94122a2f46bec3ff9487333bccfdbf) of jgclark's script instead of the newest version.
+
+### "Language not found: error
+Make sure to download the whole repository. See [issue 44](https://github.com/selfire1/BibleGateway-to-Obsidian/issues/44) for more information.
 
 ## Contributing
 
