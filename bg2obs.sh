@@ -227,20 +227,20 @@ for ((book_index=0; book_index<66; book_index++)); do
     # Use original header/footer navigation if another method isn't specified
     if [[ $ARG_BC_INLINE == "false" && $ARG_BC_YAML == "false" ]]; then
       navigation="[[$book]]"
-      if [[ $chapter > 1 ]]; then
+      if [[ $chapter -gt 1 ]]; then
         navigation="[[$prev_file|← $book $prev_chapter]] | $navigation"
       fi
-      if [[ $chapter < $last_chapter ]]; then
+      if [[ $chapter -lt $last_chapter ]]; then
         navigation="$navigation | [[$next_file|$book $next_chapter →]]"
       fi
 
     # Navigation with INLINE BREADCRUMBS ENABLED
     elif [[ $ARG_BC_INLINE == "true" ]] ; then
       navigation="(up:: [[$book]])"
-      if [[ $chapter > 1 ]]; then
+      if [[ $chapter -gt 1 ]]; then
         navigation="(previous:: [[$prev_file|← $book $prev_chapter]]) | $navigation"
       fi
-      if [[ $chapter < $last_chapter ]]; then
+      if [[ $chapter -lt $last_chapter ]]; then
         navigation="$navigation | (next:: [[$next_file|$book $next_chapter →]])"
       fi
     fi
@@ -257,10 +257,10 @@ for ((book_index=0; book_index<66; book_index++)); do
     if [[ $ARG_BC_YAML == "true" ]]; then
       # create YAML breadcrumbs
       bc_yaml="\nup: ['$book']"
-      if [[ $chapter > 1 ]]; then
+      if [[ $chapter -gt 1 ]]; then
         bc_yaml="\nprevious: ['$prev_file']$bc_yaml"
       fi
-      if [[ $chapter < $last_chapter ]]; then
+      if [[ $chapter -lt $last_chapter ]]; then
         bc_yaml="$bc_yaml\nnext: ['$next_file']"
       fi
 
