@@ -3,8 +3,8 @@ Wyj
 Kapł
 Liczb
 Powt
-Jozue
-Sdz
+Joz
+Sędz
 Rut
 1 Sam
 2 Sam
@@ -12,53 +12,53 @@ Rut
 2 Król
 1 Kron
 2 Kron
-Ezd
+Ezdr
 Neh
 Est
-Hiob
-Psalmy
-Prz
-Kaz
-Pieśni
-Iza
+Job
+Ps
+Przyp
+Kazn
+P.n.P
+Izaj
 Jer
 Treny
-Eze
+Ez
 Dan
-Ozea
+Oz
 Joel
-Amos
-Abid
-Jonasz
+Am
+Abd
+Jon
 Mich
-Nahu
-Haba
-Sofo
-Agge
+Nah
+Hab
+Sof
+Ag
 Zach
 Mal
 Mat
-Mark
+Mar
 Łuk
-Jana
-Dzieje
+Jan
+Dz
 Rzym
 1 Kor
 2 Kor
 Gal
 Efez
-Flp
+Fil
 Kol
 1 Tes
 2 Tes
 1 Tym
 2 Tym
-Tytus
+Tyt
 Filem
 Hebr
-Jakub
-1 Ptr
-2 Ptr
+Jak
+1 Piotr
+2 Piotr
 1 Jan
 2 Jan
 3 Jan
