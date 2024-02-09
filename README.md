@@ -22,13 +22,8 @@ What the script does is fetch the text from [Bible Gateway](https://www.biblegat
 
 This script is intended to be as simple as possible to use, even if you have no idea about scripting. If you have any questions, please reach out to me either on GitHub or Discord (`selfire#3095`).
 
-## Translations
-
-This repository is also available in
-
-- 🇬🇧 [English](https://github.com/selfire1/BibleGateway-to-Obsidian/tree/master)
-- 🇫🇷 [French](https://github.com/selfire1/BibleGateway-to-Obsidian/tree/translation-fr) (Merci `@fullbright`!)
-- 🇩🇪 [German](https://github.com/selfire1/BibleGateway-to-Obsidian/tree/translation-de)
+## Languages
+You can find supported languages in the [locales](https://github.com/selfire1/BibleGateway-to-Obsidian/tree/main/locales) folder.
 
 ## Installation
 
@@ -77,7 +72,7 @@ Several options are available via command-line switches. Type `bash bg2obs.sh -h
 | `-i`           | Show progress information while the script is running (i.e. "verbose" mode) (default is Off)                                                           |
 | `-c`           | Include _inline_ navigation for the [breadcrumbs](https://github.com/SkepticMystic/breadcrumbs) plugin (e.g. 'up', 'next','previous') (default is Off) |
 | `-y`           | Include navigation for the breadcrumbs plugin in the _frontmatter_ (YAML) (default is Off)                                                             |
-| `-l`           | Specify the locale that should be used to name the books of the Bible (default is English)                                                             |
+| `-l`           | Specify the locale that should be used to name the books of the Bible (default is English). See [supported locales](https://github.com/selfire1/BibleGateway-to-Obsidian/tree/main/locales).                                                             |
 | `-h`           | Display help                                                                                                                                           |
 
 #### Example usage
@@ -133,11 +128,8 @@ You can help me keep creating tools like this by [buying me a coffee](https://ww
 
 <a href="https://www.buymeacoffee.com/joschua" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height= "48" width="173"></a>
 
-### Translations
+### Locales
 
 You can contribute by translating this script into your language.
 
-- [ ] Translate name of the Bible, its books and abbreviations ([line 62](https://github.com/selfire1/BibleGateway-to-Obsidian/blob/97f873132dceb2504b765056914bd3dd927f6691/bg2obs.sh#L62))
-- [ ] Optional: Translate `README.md`
-
-Pull requests are welcome, or send me a message and I will implement your translation.
+Copy the [locales/en](https://github.com/selfire1/BibleGateway-to-Obsidian/tree/main/locales/en) folder and rename it with the relevant language tag. Add the translations in a `books.txt`, `booksAbbr.txt`, `booksAbbrShort.txt` and `name.txt` files.
