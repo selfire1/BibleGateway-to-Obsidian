@@ -1,7 +1,7 @@
 Genese
 Exode
 Levitique
-Numbres
+Nombres
 Deuteronome
 Josue
 Juges
@@ -12,7 +12,7 @@ Ruth
 2 Rois
 1 Chroniques
 2 Chroniques
-Ezra
+Esdras
 Nehemie
 Esther
 Job
@@ -23,7 +23,7 @@ Chants de Salomon
 Esaie
 Jeremie
 Lamentations
-Ezekiel
+Ezechiel
 Daniel
 Osee
 Joel
