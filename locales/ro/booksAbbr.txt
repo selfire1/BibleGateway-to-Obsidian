@@ -1,0 +1,66 @@
+Gen
+Exod
+Lev
+Num
+Deu
+Ios
+Jud
+Rut
+1 Sam
+2 Sam
+1 Împ
+2 Împ
+1 Cron
+2 Cron
+Ezr
+Neem
+Est
+Iov
+Ps
+Prov
+Ecl
+Cant
+Isa
+Ier
+Plâng
+Ezec
+Dan
+Ose
+Ioel
+Am
+Obad
+Iona
+Mic
+Naum
+Hab
+Țef
+Hag
+Zah
+Mal
+Mat
+Mar
+Luc
+Ioan
+Fapt
+Rom
+1 Cor
+2 Cor
+Gal
+Ef
+Fil
+Col
+1 Tes
+2 Tes
+1 Tim
+2 Tim
+Tit
+Fil
+Evr
+Iac
+1 Pet
+2 Pet
+1 Ioan
+2 Ioan
+3 Ioan
+Iud
+Apoc
